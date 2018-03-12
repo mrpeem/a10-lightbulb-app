@@ -195,6 +195,7 @@ exports.changeInfo = function(email, actualName, userName, description)
 
   if (userData.userName != userName) //try to change username
   {
+
     existingUserName = this.existingUserName(userName);
   }
 
@@ -211,10 +212,22 @@ exports.changeInfo = function(email, actualName, userName, description)
   userData["actualName"] = actualName;
   userData["description"] = description;
 
-
   console.log(userData);
   return existingEmail+" "+existingUserName;
+}
 
+exports.changePassword = function(originalPassword, newPassword1, newPassword2)
+{
+  var correctPassword = (userData.password == originalPassword)? true : false;
+  var validPassword = (newPassword1 == newPassword2)? true : false;
+
+  if (correctPassword && validPassword) //valid new password
+  {
+    userData['password'] = newPassword2;
+  }
+
+  console.log(userData);
+  return correctPassword+" "+validPassword;
 }
 
 function addMediaHTML()

@@ -136,6 +136,16 @@
   border-bottom: 0;
 }
 
+#password-tab {
+  grid-area: Password;
+  border-bottom: 0;
+}
+
+#info-tab {
+  grid-area: Info;
+  border-bottom: 0;
+}
+
 #tab-content{
   border: 1px solid #e5e5e5;
   border-top: 0;
@@ -212,7 +222,10 @@
 #name,
 #username,
 #password,
-#description{
+#description,
+#originalPassword,
+#newPassword1,
+#newPassword2{
   width: 90%;
   margin: auto;
     height: 2rem;
@@ -222,13 +235,18 @@
 #name::placeholder,
 #username::placeholder
 #password::placeholder,
-#description::placeholder{
+#description::placeholder,
+#originalPassword::placeholder,
+#newPassword1::placeholder,
+#newPassword2::placeholder{
   font-size: 1.3rem;
   color: black;
 }
 
 #email-taken,
-#username-taken
+#username-taken,
+#invalid-password,
+#incorrect-password
 {
   display:inline;
   color:red;

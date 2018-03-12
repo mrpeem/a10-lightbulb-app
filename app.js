@@ -240,6 +240,18 @@ io.sockets.on('connection', function(socket){
     updateUserData( profile.getUserData() );
   });
 
+  socket.on('changePassword', function(originalPassword, newPassword1, newPassword2)
+  {
+    var result = profile.changePassword(originalPassword, newPassword1, newPassword2);
+    var correctPassword = result.substr(0, result.indexOf(' '));
+    var validPassword = result.substr(result.indexOf(' ')+1);
+
+    socket.emit('validPassword', correctPassword, validPassword);
+
+    updateUserData( profile.getUserData() );
+  });
+
+
   //sends loginStatus directly froma app.js to avoid error from asynchronicity
 
   //console.log("app.js; loginStatus = "+profile.getLoginStatus());

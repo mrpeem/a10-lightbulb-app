@@ -9,78 +9,88 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-lg-11">
+                
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" id="nav-tabs">
-                    <li id="login-tab" ><a href="#Password" data-toggle="tab">Password</a></li>
-                    <li id="signup-tab" class="active"><a href="#Info" data-toggle="tab">Info</a></li>
+                    <li id="login-tab"><a href="#Password" data-toggle="tab" style="font-size:1.4rem">Edit Password</a></li>
+                    <li id="signup-tab" class="active"><a href="#Info" data-toggle="tab" style="font-size:1.4rem">Edit Info</a></li>
                 </ul>
+
                 <!-- Tab panes -->
                 <div class="tab-content" id="tab-content">
 
-                    <!-- Login form -->
-                    <div class="tab-pane " id="Password">
-                        <form role="form" class="form-horizontal">
+                    <!-- Password form -->
+                    <div class="tab-pane" id="Password">
+                        <form id="addFriendForm" role="form">
 
-                            <!-- Password -->
-                            <div class="form-group">
-                              <input type="password" class="form-control signup-input" id="password" name="password" value="{{password}}">
-                              <center>Password</center>
-                            </div>
+                          <!-- Current password -->
+                          <div class="form-group">
+                            <input type="password" class="form-control signup-input" id="originalPassword" onClick="this.setSelectionRange(0, this.value.length)">
+                            
+                            <center>
+                                <p style="display:inline">Current password</p>
+                                <p id="incorrect-password"></p>
+                              </center>
+                          </div>
 
-                            <!-- Password -->
-                            <div class="form-group">
-                              <input type="password" class="form-control signup-input" id="password" name="password" value="{{password}}">
-                              <center>Password</center>
-                            </div>
-                            <!-- Password -->
-                            <div class="form-group">
-                              <input type="password" class="form-control signup-input" id="password" name="password" value="{{password}}">
-                              <center>Password</center>
-                            </div>
+                          <br>
 
-                           
+                          <!-- New password -->
+                          <div class="form-group">
+                            <input type="password" class="form-control signup-input" id="newPassword1" onClick="this.setSelectionRange(0, this.value.length)">
+                            
+                            <center>
+                                <p style="display:inline">New password</p>
+                            </center>
+                          </div>
 
+                          <!-- Confirm password -->
+                          <div class="form-group">
+                            <input type="password" class="form-control signup-input" id="newPassword2" onClick="this.setSelectionRange(0, this.value.length)">
+                            
+                            <center>
+                                <p style="display:inline">Confirm password</p>
+                                <p id="invalid-password"></p>
+                            </center>
+                          </div>
 
-
-                            <!-- Submit button -->
+                            <!-- Save password button -->
                             <br>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <input type="submit" id="changePassword-btn" type="button" class="btn btn-primary btn-sm" value="Save Password" />
+                                    <input id="changePassword-btn" type="button" class="btn btn-primary btn-sm" value="Save Password" />
                                 </div>
                             </div>
-
-
-
 
                         </form>
                     </div>
 
-                    <!-- Registration form -->
+                    <!-- Info form -->
                     <div class="tab-pane active" id="Info">
                         <form id="addFriendForm" role="form">
+                          
                           <!-- Email -->
                           <div class="form-group">
-                            <input type="email" class="form-control signup-input" id="email"name="email" value="{{email}}">
+                            <input type="text" class="form-control signup-input" id="email" onClick="this.setSelectionRange(0, this.value.length)" value="{{email}}">
                             
                             <center>
                                 <p style="display:inline">Email</p>
                                 <p id="email-taken"></p>
-                              </center>
+                            </center>
                           </div>
 
                           <!-- Name -->
-                             <div class="form-group">
-                              <input type="text" class="form-control signup-input" id="name" name="name" value="{{actualName}}">
-                              
-                              <center>
+                          <div class="form-group">
+                            <input type="text" class="form-control signup-input" id="name" onclick="this.setSelectionRange(0, this.value.length)" value="{{actualName}}">
+                          
+                            <center>
                                 <p style="display:inline">Name</p>
-                              </center>
-                            </div>
+                            </center>
+                          </div>
 
                             <!-- Username -->
                             <div class="form-group">
-                              <input type="text" class="form-control signup-input" id="username"  name="username" value="{{userName}}">
+                              <input type="text" class="form-control signup-input" id="username"  onClick="this.setSelectionRange(0, this.value.length)" value="{{userName}}">
                               
                               <center>
                                 <p style="display:inline">Username</p>
@@ -97,13 +107,12 @@
                               </center>
                             </div>
 
-                            <!-- Sign-up button -->
+                            <!-- Save info button -->
                             <div class="row">
                                 <div class="col-sm-12">                              
-                                    <input id="changeInfo-btn" class="btn btn-primary btn-sm signup-input"  value="Save Info" onclick="changeInfoClicked({{userIdNumber}})"" ></input>
+                                    <input id="changeInfo-btn" class="btn btn-primary btn-sm signup-input"  value="Save Info" ></input>
                                 </div>
                             </div>
-
                           
 
                         </form>
@@ -119,7 +128,6 @@
     </div>
 </div>
 
-{{>notification_popup}}
 
 <!-- Check if user enter correct login information -->
 <script src="/socket.io/socket.io.js"></script>
@@ -128,38 +136,15 @@ var socket = io.connect('http://localhost:3000');
 //var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');
 //var socket = io.connect('https://a9-team2.herokuapp.com/');
 
-    //---------
-
-
-
-    //for login
-    $('#login-btn').click(function(e)
+    $('#changePassword-btn').click(function(e)
     {
         e.preventDefault();
+        var originalPassword = $('#originalPassword').val();
+        var newPassword1 = $('#newPassword1').val();
+        var newPassword2 = $('#newPassword2').val();
 
-        var email = $('#email1').val();
-        var pWord = $('#exampleInputPassword1').val();
-        var usrName = $('fb_gg_username').val();
-        var usrImg = $('fb_gg_image').val();
-        var actualName = $('fb_gg_name').val();
-        socket.emit('login', email, pWord, usrName, usrImg, actualName);
+        changePassword(originalPassword, newPassword1, newPassword2);
     });
-
-    socket.on('failedLogin', function()
-    {
-        $('.login-fail-popup').fadeIn(500);
-        $('.login-fail-popup').fadeOut(2500);
-    });
-
-    //show login success message and go to homepage
-    socket.on('successfulLogin', function()
-    {
-        $('.login-popup').fadeIn(500, function()
-        {
-            //undo effect of preventDefault and reload page
-            location.reload();
-        });
-    })
 
     //---------
 
@@ -171,16 +156,6 @@ var socket = io.connect('http://localhost:3000');
         var usrName = $('#username').val();
         var email = $('#email').val();
 
-
         changeInfo(email, actualName, usrName, description);
-        //location.reload();
-
     });
-
-    socket.on('alreadyExist', function()
-    {
-        $('.register-fail-popup').fadeIn(500);
-        $('.register-fail-popup').fadeOut(2000);
-    })
-
 </script>

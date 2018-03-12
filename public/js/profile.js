@@ -22,19 +22,21 @@ function checkLoginStatus(signedIn)
 
 
 
+function logout()
+{
+  socket.emit('logout');
+}
+
 function changeInfo(email, actualName, userName, description)
 {
   socket.emit("changeInfo", email, actualName, userName, description);
   socket.once('validInfo', function(existingEmail, existingUserName)
   {
-    if (existingEmail == 'true') //show error message if email exist
-    {
-      $('#email-taken').text("*email already exists*");
-    }
-    if (existingUserName == 'true') //show error message if username exist
-    {
-      $('#username-taken').text("*username already exists*");
-    }
+    var text = (existingEmail == 'true')? "*email already exists*" : "";
+    $('#email-taken').text(text);
+
+    text = (existingUserName == 'true')? "*username already exists*" : "";
+    $('#username-taken').text(text);
 
     //reaload page if all info are valid
     if(existingEmail == 'false' && existingUserName == 'false')
@@ -43,12 +45,25 @@ function changeInfo(email, actualName, userName, description)
     }
 
   });
-
 }
 
-
-
-function logout()
+function changePassword(originalPassword, newPassword1, newPassword2)
 {
-  socket.emit('logout');
+  socket.emit("changePassword", originalPassword, newPassword1, newPassword2);
+  socket.once('validPassword', function(correctPassword, validPassword)
+  {
+ 
+    var text = (correctPassword == 'false')? "*Incorrect password*" : "";
+    $('#incorrect-password').text(text);
+
+    text = (validPassword == 'false')? "*Password does not match" : "";
+    $('#invalid-password').text(text);
+
+    //reaload page if all info are valid
+    if(correctPassword == 'true' && validPassword == 'true')
+    {
+      location.reload();
+    }
+
+  });
 }
