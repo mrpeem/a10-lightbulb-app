@@ -82,6 +82,38 @@ exports.facebook_google_login = function(email, password, userName, img, actualN
 
 exports.register = function(email, password, userName, img, actualName)
 {
+  console.log("REGISTER");
+  var request = require('request');
+  var myJSONObject = {
+  "loginStatus": false,
+  "userIdNumber": 0,
+  "userName": "default",
+  "actualName": "default",
+  "email" : "t@default.com",
+  "password": "default",
+  "profileImgURL": "/images/icons/default_profile.jpg",
+  "currentPageViewed": "default",
+  "currentCategorySelected": "default",
+  "currentItemIndex": 0,
+  "isScreenShared": false,
+  "isAtChatroom": false,
+  "categoryList": [],
+  "favoriteList": [],
+  "likedList" : [],
+  "bookmarkedList": [],
+  "ip" : "default"
+};
+
+  request({
+      url: "http://localhost:3001/users/signup",
+      method: "POST",
+      json: true,   // <--Very important!!!
+      body: myJSONObject
+  }, function (error, response, body){
+      console.log(body);
+  });
+
+
   var i;
   if ( (i = this.existingUser(email, password, false) != -1) )
   {
