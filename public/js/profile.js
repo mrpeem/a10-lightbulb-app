@@ -1,5 +1,5 @@
-//var socket = io.connect('http://localhost:3000');
-var socket = io.connect('https://a9-team2.herokuapp.com/');
+var socket = io.connect('http://localhost:3000');
+//var socket = io.connect('https://a9-team2.herokuapp.com/');
 
 //var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');
 
@@ -21,10 +21,32 @@ function checkLoginStatus(signedIn)
 };
 
 
-function changeDescription(description)
+
+function changeInfo(email, actualName, userName, description)
 {
-  socket.emit("changeDescription", description);
+  socket.emit("changeInfo", email, actualName, userName, description);
+  socket.once('validInfo', function(existingEmail, existingUserName)
+  {
+    if (existingEmail == 'true') //show error message if email exist
+    {
+      $('#email-taken').text("*email already exists*");
+    }
+    if (existingUserName == 'true') //show error message if username exist
+    {
+      $('#username-taken').text("*username already exists*");
+    }
+
+    //reaload page if all info are valid
+    if(existingEmail == 'false' && existingUserName == 'false')
+    {
+      location.reload();
+    }
+
+  });
+
 }
+
+
 
 function logout()
 {

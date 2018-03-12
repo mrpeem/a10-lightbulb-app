@@ -1,4 +1,4 @@
-<div class="modal-content">
+<div class="modal-content" scroll="no" style="overflow: hidden">
     <!-- Header -->
     <div class="modal-header" style="position:relative;">
 
@@ -115,8 +115,10 @@
                             </div>
 
                             <!-- Sign-up button -->
-                            <div id="signup-btn" class="form-group">
-                              <input type="submit" id="signUpBtn" class="btn btn-default signup-input" value="Sign Up" ></input>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input type="submit" id="signUpBtn" class="btn btn-default signup-input" value="Sign Up" ></input>
+                                </div>
                             </div>
 
                         </form>
@@ -132,14 +134,16 @@
     </div>
 </div>
 
+<center>
 {{>notification_popup}}
+</center>
 
 <!-- Check if user enter correct login information -->
 <script src="/socket.io/socket.io.js"></script>
 <script>
-//var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://localhost:3000');
 //var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');
-var socket = io.connect('https://a9-team2.herokuapp.com/');
+//var socket = io.connect('https://a9-team2.herokuapp.com/');
 
     //---------
 

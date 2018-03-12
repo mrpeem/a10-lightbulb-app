@@ -1,0 +1,186 @@
+<div class="modal-content" scroll="no" style="overflow: hidden">
+    <!-- Header -->
+    <div class="modal-header" style="position:relative;">
+
+        <h4 class="modal-title" id="myModalLabel"><img src="/images/logo.png" style="width:100%; margin-top:2rem;">
+          <button style="font-size:2rem; position:absolute; top:0.5rem; right:0.5rem; color:black; opacity:.6;" type="button" class="close" data-dismiss="modal" aria-hidden="true"> X </button></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-11">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="nav-tabs">
+                    <li id="login-tab" ><a href="#Password" data-toggle="tab">Password</a></li>
+                    <li id="signup-tab" class="active"><a href="#Info" data-toggle="tab">Info</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content" id="tab-content">
+
+                    <!-- Login form -->
+                    <div class="tab-pane " id="Password">
+                        <form role="form" class="form-horizontal">
+
+                            <!-- Password -->
+                            <div class="form-group">
+                              <input type="password" class="form-control signup-input" id="password" name="password" value="{{password}}">
+                              <center>Password</center>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group">
+                              <input type="password" class="form-control signup-input" id="password" name="password" value="{{password}}">
+                              <center>Password</center>
+                            </div>
+                            <!-- Password -->
+                            <div class="form-group">
+                              <input type="password" class="form-control signup-input" id="password" name="password" value="{{password}}">
+                              <center>Password</center>
+                            </div>
+
+                           
+
+
+
+                            <!-- Submit button -->
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input type="submit" id="changePassword-btn" type="button" class="btn btn-primary btn-sm" value="Save Password" />
+                                </div>
+                            </div>
+
+
+
+
+                        </form>
+                    </div>
+
+                    <!-- Registration form -->
+                    <div class="tab-pane active" id="Info">
+                        <form id="addFriendForm" role="form">
+                          <!-- Email -->
+                          <div class="form-group">
+                            <input type="email" class="form-control signup-input" id="email"name="email" value="{{email}}">
+                            
+                            <center>
+                                <p style="display:inline">Email</p>
+                                <p id="email-taken"></p>
+                              </center>
+                          </div>
+
+                          <!-- Name -->
+                             <div class="form-group">
+                              <input type="text" class="form-control signup-input" id="name" name="name" value="{{actualName}}">
+                              
+                              <center>
+                                <p style="display:inline">Name</p>
+                              </center>
+                            </div>
+
+                            <!-- Username -->
+                            <div class="form-group">
+                              <input type="text" class="form-control signup-input" id="username"  name="username" value="{{userName}}">
+                              
+                              <center>
+                                <p style="display:inline">Username</p>
+                                <p id="username-taken"></p>
+                              </center>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="form-group">
+                              <input type="text" class="form-control signup-input" id="description" name="description" onClick="this.setSelectionRange(0, this.value.length)" value="{{description}}">
+                              
+                              <center>
+                                <p style="display:inline">Description</p>
+                              </center>
+                            </div>
+
+                            <!-- Sign-up button -->
+                            <div class="row">
+                                <div class="col-sm-12">                              
+                                    <input id="changeInfo-btn" class="btn btn-primary btn-sm signup-input"  value="Save Info" onclick="changeInfoClicked({{userIdNumber}})"" ></input>
+                                </div>
+                            </div>
+
+                          
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{>notification_popup}}
+
+<!-- Check if user enter correct login information -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect('http://localhost:3000');
+//var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');
+//var socket = io.connect('https://a9-team2.herokuapp.com/');
+
+    //---------
+
+
+
+    //for login
+    $('#login-btn').click(function(e)
+    {
+        e.preventDefault();
+
+        var email = $('#email1').val();
+        var pWord = $('#exampleInputPassword1').val();
+        var usrName = $('fb_gg_username').val();
+        var usrImg = $('fb_gg_image').val();
+        var actualName = $('fb_gg_name').val();
+        socket.emit('login', email, pWord, usrName, usrImg, actualName);
+    });
+
+    socket.on('failedLogin', function()
+    {
+        $('.login-fail-popup').fadeIn(500);
+        $('.login-fail-popup').fadeOut(2500);
+    });
+
+    //show login success message and go to homepage
+    socket.on('successfulLogin', function()
+    {
+        $('.login-popup').fadeIn(500, function()
+        {
+            //undo effect of preventDefault and reload page
+            location.reload();
+        });
+    })
+
+    //---------
+
+    $('#changeInfo-btn').click(function(e)
+    {
+        e.preventDefault();
+        var description = $('#description').val();
+        var actualName = $('#name').val();
+        var usrName = $('#username').val();
+        var email = $('#email').val();
+
+
+        changeInfo(email, actualName, usrName, description);
+        //location.reload();
+
+    });
+
+    socket.on('alreadyExist', function()
+    {
+        $('.register-fail-popup').fadeIn(500);
+        $('.register-fail-popup').fadeOut(2000);
+    })
+
+</script>

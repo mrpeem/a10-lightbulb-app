@@ -11,9 +11,10 @@
 
       <div class = "description">
         <div class="page-box page-box-padding">
-              {{description}}
-          </div>
+          {{description}}
+        </div>
       </div>
+
 
       <div class = "username">
         <p>{{actualName}}</p>
@@ -23,6 +24,14 @@
 
       <div class= "edit-profile">
         <a id="profile-edit" onclick="changeDescription('This is will be your new description')">Edit Profile</a>
+        <a class="btn" id="profile-edit2" href="/profile_edit" data-toggle="modal" data-target="#profile_popup"> EDIT </a>
+
+
+
+
+
+        
+
         <a id="profile-logout" href="/" id="logout_btn" onclick="logout()">LOG OUT</a>
 	<!--<a id="profile-logout" >LOG OUT</a>-->
 
@@ -69,6 +78,8 @@
 
 
 
+    <!-- SPACE FOR POPUP -->
+    <div id="profile_popup" class="modal"> </div>
 
     <!-- BOTTOM NAVIGATION BAR -->
 		{{>navigation}}

@@ -166,18 +166,18 @@
 
 }
 
-#login-btn{
+#login-btn, 
+#flogin-btn, 
+#glogin-btn, 
+#changePassword-btn,
+#changeInfo-btn,
+#signUpBtn{
   width: 100%;
+  background-color: #5CA7BA;
 
 }
 
-#flogin-btn{
-  width: 100%;
-}
 
-#glogin-btn{
-  width: 100%;
-}
 
 #profile_popup{
   border-radius: 1rem;
@@ -208,57 +208,32 @@
   margin-bottom: 0;
 }
 
-#email1{
-  margin: auto;
-  width: 90%;
-  height: 2rem;
-}
-#email{
-  width: 90%;
-  margin: auto;
-    height: 2rem;
-    padding-top: 1rem;
-  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-
-}
-
-#email::placeholder{
-  font-size: 1.3rem;
-  color: black;
-}
-#name{
-  width: 90%;
-  margin: auto;
-  height: 2rem;
-  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-
-}
-#name::placeholder{
-  font-size: 1.3rem;
-  color: black;
-}
-#username{
+#email,
+#name,
+#username,
+#password,
+#description{
   width: 90%;
   margin: auto;
     height: 2rem;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-
 }
-#username::placeholder{
+#email::placeholder,
+#name::placeholder,
+#username::placeholder
+#password::placeholder,
+#description::placeholder{
   font-size: 1.3rem;
   color: black;
 }
-#password{
-  width: 90%;
-  margin: auto;
-    height: 2rem;
-  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 
+#email-taken,
+#username-taken
+{
+  display:inline;
+  color:red;
 }
-#password::placeholder{
-  font-size: 1.3rem;
-  color: black;
-}
+
 
 #submitBtn{
   width: 90%;

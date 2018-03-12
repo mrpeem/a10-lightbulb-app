@@ -1,6 +1,6 @@
 'use strict';
-//var socket = io.connect('http://localhost:3000');
-var socket = io.connect('https://a9-team2.herokuapp.com/');
+var socket = io.connect('http://localhost:3000');
+//var socket = io.connect('https://a9-team2.herokuapp.com/');
 
 
 $(document).ready(function() {

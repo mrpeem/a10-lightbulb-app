@@ -57,6 +57,7 @@ app.get('/browse', browse.view);
 app.get('/profile', profile.view);
 app.get('/profile_register', profile.register);
 app.get('/profile_logout', profile.logout);
+app.get('/profile_edit', profile.edit);
 
 //app.get('/profile_goodle', profile.google);
 app.get('/sharedChat/:userIdNumber/:categoryTitle/:itemId/show', userInfo.shareView);
@@ -228,10 +229,14 @@ io.sockets.on('connection', function(socket){
     share.email(email, link);
   });
 
-  socket.on('changeDescription', function(description)
+  socket.on('changeInfo', function(email, actualName, userName, description)
   {
-    console.log("changeDescription: "+description);
-    profile.changeDescription(description);
+    var result = profile.changeInfo(email, actualName, userName, description);
+    var existingEmail = result.substr(0, result.indexOf(' '));
+    var existingUserName = result.substr(result.indexOf(' ')+1);
+
+    socket.emit('validInfo', existingEmail, existingUserName);
+
     updateUserData( profile.getUserData() );
   });
 

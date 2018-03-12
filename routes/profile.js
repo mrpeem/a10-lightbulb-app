@@ -36,6 +36,10 @@ exports.view = function(req, res) {
   }
 };
 
+exports.edit = function(req, res) {
+  res.render('profile_edit', userData);
+}
+
 //return true if successful login; false otherwise
 exports.login = function(email, password, userName, img, actualName)
 {
@@ -130,6 +134,20 @@ exports.existingUser = function(email, password, checkPassword)
   return -1; //new user
 }
 
+//return userIdNumber if user exists; -1 otherwise
+exports.existingUserName = function(userName)
+{
+  for (var i = 0; i < wholeUserData.length; i++) 
+  {
+    //user alreay exists
+    if (userName == wholeUserData[i].userName) 
+    {
+      return true;
+    }
+  }
+
+  return false; //new user
+}
 
 //helper function to create new users
 function createNewUser(id, userName, password, email, img, actualName) {
@@ -165,10 +183,38 @@ exports.updateUserData = function(usrData)
   userData = usrData;
 };
 
-exports.changeDescription = function(description)
+exports.changeInfo = function(email, actualName, userName, description)
 {
+  var existingEmail = false;
+  var existingUserName = false;
+
+  if (userData.email != email) //try to change email
+  {
+    existingEmail = this.existingUser(email, "", false) != -1;
+  }
+
+  if (userData.userName != userName) //try to change username
+  {
+    existingUserName = this.existingUserName(userName);
+  }
+
+  if (!existingEmail) //change email if it doesn't exist
+  {
+    userData["email"] = email;
+  }
+  if (!existingUserName) //change username if it doesn't exist
+  {
+    userData["userName"] = userName;
+  }
+
+  //change actualName and description regardless
+  userData["actualName"] = actualName;
   userData["description"] = description;
+
+
   console.log(userData);
+  return existingEmail+" "+existingUserName;
+
 }
 
 function addMediaHTML()
