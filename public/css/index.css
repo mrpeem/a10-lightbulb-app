@@ -1,0 +1,545 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+  overflow: hidden;
+
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.page-container {
+  height: 100%;
+  min-height: 100%;
+  overflow: scroll;
+  width: 100%;
+}
+
+.pageTitle-container{
+  height: 0.5rem;
+  margin: 0 1rem;
+  /*
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas: "Title Search";
+  */
+}
+
+.page-Title{
+  position: relative;
+  font-size: 2.7rem;
+  grid-area: Title;
+  text-align: right;
+
+}
+
+.page-Search{
+  grid-area: Search;
+  font-size: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.search-50 {
+  padding: 0.5rem 1rem;
+  border: 1px solid #DFDFDF;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.search-50 span {
+  font-size: 1rem;
+}
+
+.search-50 img {
+  width: 20%;
+}
+
+.categories-container {
+  margin-bottom: 0.5rem;
+  width: 100%;
+
+}
+.content-container{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "Title More";
+  margin:1rem;
+  margin-bottom: 0;
+}
+
+.categories-button{
+  margin: 0 1rem;
+  margin-top: 1rem;
+}
+
+.categories img {
+  width: 2.5rem;
+  height: auto;
+}
+
+.content-Title{
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 1.7rem;
+}
+
+.content-More {
+  text-align: right;
+  font-size: 1.1rem;
+  color: red;
+  margin: auto 0;
+}
+
+#con-more{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "Edit Sort";
+  margin: 0;
+}
+
+.more{
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+}
+
+.categories{
+  border: 1px solid #DFDFDF;
+  font-size: 2rem;
+  padding: 0.25rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  background-color: #5CA7BA;
+  border-radius: 7px;
+  color: white;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 2rem;
+}
+#travel{
+  grid-area:Literature;
+  margin-left:2px;
+  background-color: #96D6E5;
+  border-radius: 7px;
+  color: #040404;
+}
+
+.recently-button{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.recently{
+  height: 35vw;
+  margin: 0 1rem;
+  border: 1px solid #DFDFDF;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.recently p {
+  font-size: 3rem;
+
+}
+
+
+
+.nav-container {
+  background-color: #DFDFDF;
+  position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "Home Brower Profile Search";
+  bottom: 0;
+  text-align: center;
+
+
+}
+
+.nav-images{
+  padding-top: 1rem;
+}
+
+.nav-images img {
+  width:2rem;
+}
+
+.nav-title {
+  font-size: 1rem;
+
+}
+
+.nav-divider{
+  background-color: #B2CDE3;
+  border-right: 1px solid #efefef;
+
+}
+
+.nav-cover{
+  margin-bottom: 5rem;
+}
+
+.footer{
+  margin-top: 5rem;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.content-media{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+  height: 93vw;
+  border: 1px solid #dfdfdf;
+  background-color: gray;
+}
+
+.playbuttons{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "Image Video"
+    "Music Literature";
+}
+
+#image{
+  grid-area:Image;
+  margin-right: 2px;
+  background-color: #96D6E5;
+  border-radius: 7px;
+  color: #080808;
+}
+#video{
+  grid-area:Video;
+  margin-left:2px;
+  background-color: #96D6E5;
+  border-radius: 7px;
+  color: #0a0000;
+
+}
+#music{
+  grid-area:Music;
+  margin-right: 2px;
+  background-color: #96D6E5;
+  border-radius: 7px;
+  color: black;
+
+
+}
+#literature{
+  grid-area:Literature;
+  margin-left:2px;
+  background-color:#96D6E5;
+  border-radius: 7px;
+  color: #040404;
+}
+.content-media img{
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+  overflow: hidden;
+
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.page-container {
+  height: 100%;
+  min-height: 100%;
+  overflow: scroll;
+  width: 100%;
+}
+
+.pageTitle-container{
+  height: 0.5rem;
+  margin: 0 1rem;
+  /*
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas: "Title Search";
+  */
+}
+
+.page-Title{
+  position: relative;
+  font-size: 2.7rem;
+  grid-area: Title;
+  text-align: right;
+
+}
+
+.page-Search{
+  grid-area: Search;
+  font-size: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.search-50 {
+  padding: 0.5rem 1rem;
+  border: 1px solid #DFDFDF;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.search-50 span {
+  font-size: 1rem;
+}
+
+.search-50 img {
+  width: 20%;
+}
+
+.categories-container {
+  margin-bottom: 0.5rem;
+  width: 100%;
+
+}
+.content-container{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 1.3fr;
+  grid-template-areas: "Title More";
+  margin:1rem;
+  margin-bottom: 0;
+}
+
+.categories-button{
+  margin: 0 1rem;
+  margin-top: 1rem;
+}
+
+.categories img {
+  width: 2.5rem;
+  height: auto;
+}
+
+.content-Title{
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+.content-More {
+  text-align: right;
+  font-size: 1.1rem;
+  color: red;
+  margin: auto 0;
+}
+
+
+#con-more{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "Edit Sort";
+  margin: 0;
+}
+
+.more{
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+}
+
+.categories{
+  border: 1px solid #DFDFDF;
+  font-size: 2rem;
+  padding: 0.25rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  background-color: #5CA7BA;
+  border-radius: 7px;
+  color: white;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 2rem;
+}
+
+.recently-button{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.recently{
+  height: 35vw;
+  margin: 0 1rem;
+  border: 1px solid #DFDFDF;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.recently p {
+  font-size: 3rem;
+
+}
+
+
+
+.nav-container {
+  background-color: #DFDFDF;
+  position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "Home Brower Profile Search";
+  bottom: 0;
+  text-align: center;
+
+}
+
+.nav-images{
+  padding-top: 1rem;
+}
+
+.nav-images img {
+  width:2rem;
+}
+
+.nav-title {
+  font-size: 1rem;
+
+}
+
+.nav-divider{
+  border-right: 1px solid #efefef;
+
+
+}
+
+.nav-cover{
+  margin-bottom: 5rem;
+}
+
+.footer{
+  margin-top: 5rem;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.content-media{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+  height: 93vw;
+  border: 1px solid #dfdfdf;
+  background-color: gray;
+}
+
+.playbuttons{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "Image Video"
+    "Music Literature";
+}
+
+#image{
+  grid-area:Image;
+  margin-right: 2px;
+  background-color: #96D6E5;
+  border-radius: 7px;
+  color: #080808;
+}
+#video{
+  grid-area:Video;
+  margin-left:2px;
+  background-color:#96D6E5;
+  border-radius: 7px;
+  color: #0a0000;
+
+}
+#music{
+  grid-area:Music;
+  margin-right: 2px;
+  background-color: #96D6E5;
+  border-radius: 7px;
+  color: black;
+
+
+}
+#literature{
+  grid-area:Literature;
+  margin-left:2px;
+  background-color: #96D6E5;
+  border-radius: 7px;
+  color: #040404;
+}
+
+
+.content-media img{
+  width: 100%;
+}

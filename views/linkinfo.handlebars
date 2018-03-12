@@ -1,0 +1,70 @@
+{{>header}}
+
+<link rel="stylesheet" href="/css/info.css">
+<link href="/css/profile.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page-container">
+    <div class="pageTitle-container">
+
+      <div class="page-back">
+        <a href="/sharedlink/{{itemId}}/show"> &lt; Back  </a>
+      </div>
+
+      <div class="page-title">
+        info
+      </div>
+
+      <div class="page-filter">
+        Save
+      </div>
+
+    </div>
+    <div id="desc" class="page-subtitle">
+      Title
+    </div>
+    <div class="page-box page-box-padding basic-padding">
+      {{itemTitle}}
+    </div>
+
+    <div class="page-subtitle">
+      Description
+    </div>
+
+    <div class="page-box page-box-padding basic-padding">
+      {{description}}
+    </div>
+
+    {{#each extra}}
+    <div class="page-subtitle">
+      {{title}}
+    </div>
+        {{{contentHTML}}}
+        {{#each container}}
+          {{{mediaHTML}}}
+        {{/each}}
+   {{/each}}
+
+
+    <div class="nav-coverlink">
+    </div>
+
+    <!-- SPACE FOR POPUP -->
+    <div id="profile_popup" class="modal"> </div>
+
+
+
+    {{>footer}}
+
+
+
+  </div>
+
+  {{>script}}
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="/js/info.js"></script>
+
+</body>
+
+</html>

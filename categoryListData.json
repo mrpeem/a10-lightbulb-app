@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Activities",
+    "id": "activities"
+  }, {
+    "title": "Art",
+    "id": "art"
+  }, {
+    "title": "Audio",
+    "id": "audio"
+  }, {
+    "title": "Beauty",
+    "id": "beauty"
+  }, {
+    "title": "Games",
+    "id": "games"
+  }, {
+    "title": "Garden",
+    "id": "garden"
+  }, {
+    "title": "Food",
+    "id": "food"
+  }, {
+    "title": "Home",
+    "id": "home"
+  }, {
+    "title": "Kids",
+    "id": "kid"
+  }, {
+    "title": "Movies",
+    "id": "movies"
+  }, {
+    "title": "Music",
+    "id": "music"
+  }, {
+    "title": "Pets",
+    "id": "pets"
+  }, {
+    "title": "Sports",
+    "id": "sports"
+  }, {
+    "title": "Toys",
+    "id": "toys"
+  }, {
+    "title": "Travel",
+    "id": "travel"
+  }
+]

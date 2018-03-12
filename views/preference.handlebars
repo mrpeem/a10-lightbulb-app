@@ -1,0 +1,65 @@
+{{>header}}
+<link href="/css/play.css" rel="stylesheet">
+<link href="/css/preference.css" rel="stylesheet">
+</head>
+
+<body>
+
+  {{>searchbar}}
+
+  <div class="page-container">
+
+    <div class="pageTitle-container">
+      <div class="page-back">
+
+      </div>
+      <div class="page-title">
+        Preference
+
+      </div>
+
+
+      <div class="page-filter">
+        <a href="/profile">Skip</a>
+      </div>
+    </div>
+    <div class="nav-up-cover">
+
+    </div>
+    <div class="preference-Title">
+      <div>Select your prefered categories.</div>
+    </div>
+
+    <div class="preference-Search">
+      <div class="search-50" align="right">
+        <img src="/images/icons/search-50.png" alt="search button"><span> Search</span>
+      </div>
+    </div>
+
+    <div class="categories-button">
+
+      {{#each categoryList}}
+        <form>
+          <input type="checkbox" id="{{id}}" name="{{id}}" value="{{title}}">
+          <label for="{{id}}">{{title}}</label>
+
+        </form>
+
+      {{/each}}
+    </div>
+
+  </div>
+
+
+  {{>navigation}}
+
+
+
+
+  </div>
+
+  {{>script}}
+
+</body>
+
+</html>

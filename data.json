@@ -1,0 +1,689 @@
+[{
+    "id": 0,
+    "category": "activities",
+    "itemTitle": "La Jolla Surf",
+    "type": "image",
+    "date": "February 6",
+    "caption": "La Jolla beaches Are the place to surf",
+    "summary": "With optimal weather and amazing waves, La Jolla is the place to be!",
+    "keyword": "Beaches",
+    "URL": "/images/activities/1.jpeg",
+    "extraInfo": [{
+        "type": "location",
+        "title": "Location",
+        "content": "8564 El Paseo Grande, La Jolla, CA 92037",
+        "imageURL": "/images/info/map.png",
+        "linkURL": "",
+        "container": [],
+        "contentHTML": ""
+      },
+      {
+        "type": "nearSearch",
+        "title": "Beaches Near You",
+        "content": "",
+        "imageURL": "",
+        "linkURL": "",
+        "container": [{
+            "title": "La Jolla Shores",
+            "externalURL": "",
+            "tempDataF": "61",
+            "tempDataC": "16",
+            "weather": "cloudy",
+            "degree": "2",
+            "iconURL": "/images/icons/cloudy-day-2.svg",
+            "mediaHTML": "",
+            "webURL":"http://enjoylajollashores.com"
+          },
+          {
+            "title": "Black's Beach",
+            "externalURL": "",
+            "tempDataF": "63",
+            "tempDataC": "17",
+            "weather": "cloudy",
+            "degree": "1",
+            "iconURL": "/images/icons/cloudy-day-1.svg",
+            "mediaHTML": "",
+            "webURL":"https://www.californiabeaches.com/beach/blacks-beach-san-diego/"
+          },
+          {
+            "title": "Shell Beach",
+            "externalURL": "",
+            "tempDataF": "53",
+            "tempDataC": "12",
+            "weather": "rainy",
+            "degree": "1",
+            "iconURL": "/images/icons/rainy-1.svg",
+            "mediaHTML": "",
+            "webURL":"https://www.californiabeaches.com/map/shell-beach-area-pismo-beach/"
+          }
+        ],
+        "contentHTML": ""
+      }
+
+    ]
+  },
+  {
+    "id": 1,
+    "category": "activities",
+    "itemTitle": "activity 2",
+    "type": "image",
+    "date": "February 6",
+    "caption": "activity 2 caption",
+    "summary": "activity 2 summary",
+    "keyword": "Beaches",
+    "URL": "/images/activities/2.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 2,
+    "category": "activities",
+    "itemTitle": "activity 3",
+    "type": "image",
+    "date": "February 6",
+    "caption": "activity 3 caption",
+    "summary": "activity 3 summary",
+    "keyword": "Beaches",
+    "URL": "/images/activities/3.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 3,
+    "category": "food",
+    "itemTitle": "food 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "food 1 caption",
+    "summary": "food 1 summary",
+    "keyword": "",
+    "URL": "/images/food/1.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 4,
+    "category": "food",
+    "itemTitle": "food 2",
+    "type": "image",
+    "date": "February 6",
+    "caption": "food 2 caption",
+    "summary": "food 2 summary",
+    "keyword": "",
+    "URL": "/images/food/2.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 5,
+    "category": "food",
+    "itemTitle": "food 3",
+    "type": "image",
+    "date": "February 6",
+    "caption": "food 3 caption",
+    "summary": "food 3 summary",
+    "keyword": "",
+    "URL": "/images/food/3.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 6,
+    "category": "travel",
+    "itemTitle": "travel 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "travel 1 caption",
+    "summary": "travel 1 summary",
+    "keyword": "",
+    "URL": "/images/travel/1.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 7,
+    "category": "travel",
+    "itemTitle": "travel 2",
+    "type": "image",
+    "date": "February 6",
+    "caption": "travel 2 caption",
+    "summary": "travel 2 summary",
+    "keyword": "",
+    "URL": "/images/travel/2.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 8,
+    "category": "beauty",
+    "itemTitle": "beauty 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "beauty 1 caption",
+    "summary": "beauty 1 summary",
+    "keyword": "",
+    "URL": "/images/beauty/1.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 9,
+    "category": "pets",
+    "itemTitle": "pets 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "pets 1 caption",
+    "summary": "pets 1 summary",
+    "keyword": "",
+    "URL": "/images/pets/1.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 10,
+    "category": "travel",
+    "itemTitle": "travel 3",
+    "type": "image",
+    "date": "February 6",
+    "caption": "travel 3 caption",
+    "summary": "travel 3 summary",
+    "keyword": "",
+    "URL": "/images/travel/3.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 11,
+    "category": "beauty",
+    "itemTitle": "beauty 2",
+    "type": "image",
+    "date": "February 6",
+    "caption": "beauty 2 caption",
+    "summary": "beauty 2 summary",
+    "keyword": "",
+    "URL": "/images/beauty/2.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 12,
+    "category": "beauty",
+    "itemTitle": "beauty 3",
+    "type": "image",
+    "date": "February 6",
+    "caption": "beauty 3 caption",
+    "summary": "beauty 3 summary",
+    "keyword": "",
+    "URL": "/images/beauty/3.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 13,
+    "category": "pets",
+    "itemTitle": "pets 2",
+    "type": "image",
+    "date": "February 6",
+    "caption": "pets 2 caption",
+    "summary": "pets 2 summary",
+    "keyword": "",
+    "URL": "/images/pets/2.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 14,
+    "category": "pets",
+    "itemTitle": "pets 3",
+    "type": "image",
+    "date": "February 6",
+    "caption": "pets 3 caption",
+    "summary": "pets 3 summary",
+    "keyword": "",
+    "URL": "/images/pets/3.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 15,
+    "category": "toys",
+    "itemTitle": "toy 1",
+    "type": "video",
+    "date": "February 6",
+    "caption": "toys 1 caption",
+    "summary": "toys 1 summary",
+    "keyword": "",
+    "URL": "/video/toys/1.mp4",
+    "extraInfo": []
+
+  },
+  {
+    "id": 16,
+    "category": "kid",
+    "itemTitle": "The Hobbit and the Lord of the Rings",
+    "type": "literature",
+    "date": "February 6",
+    "caption": "kid 1 caption",
+    "summary": "kid 1 summary",
+    "keyword": "",
+    "URL": "/images/kid/1.png",
+    "extraInfo": []
+
+  },
+  {
+    "id": 17,
+    "category": "art",
+    "itemTitle": "art 1",
+    "type": "literature",
+    "date": "February 6",
+    "caption": "art 1 caption",
+    "summary": "art 1 summary",
+    "keyword": "",
+    "URL": "/images/art/1.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 18,
+    "category": "art",
+    "itemTitle": "art 2",
+    "type": "literature",
+    "date": "February 6",
+    "caption": "art 2 caption",
+    "summary": "art 2 summary",
+    "keyword": "",
+    "URL": "/images/art/2.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 19,
+    "category": "art",
+    "itemTitle": "art 3",
+    "type": "literature",
+    "date": "February 6",
+    "caption": "art 3 caption",
+    "summary": "art 3 summary",
+    "keyword": "",
+    "URL": "/images/art/3.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 20,
+    "category": "music",
+    "itemTitle": "music 1",
+    "type": "music",
+    "date": "February 6",
+    "caption": "music 1 caption",
+    "summary": "music 1 summary",
+    "keyword": "",
+    "URL": "/music/1.ogg",
+    "extraInfo": []
+
+  },
+{
+    "id": 21,
+    "category": "movies",
+    "itemTitle": "movie 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "movie 1 caption",
+    "summary": "movie 1 summary",
+    "keyword": "",
+    "URL": "/images/movies/1.jpeg",
+    "extraInfo": []
+
+  },
+  {
+    "id": 22,
+    "category": "sports",
+    "itemTitle": "sport 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "sport 1 caption",
+    "summary": "sport 1 summary",
+    "keyword": "",
+    "URL": "/images/sports/1.jpeg",
+    "extraInfo": []
+
+  },
+
+  {
+    "id": 23,
+    "category": "garden",
+    "itemTitle": "garden 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Flower Garden",
+    "summary": "Beautiful flower Garden",
+    "keyword": "Garden",
+    "URL": "/images/garden/1.jpeg",
+    "extraInfo": []
+
+   },
+   {
+   "id": 24,
+    "category": "home",
+    "itemTitle": "Home Decor",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Minimalist Design",
+    "summary": "All white",
+    "keyword": "Home",
+    "URL": "/images/home/1.jpeg",
+    "extraInfo": []
+
+    },
+
+    {
+    "id": 25,
+    "category": "audio",
+    "itemTitle": "audio 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Home Stereo System!",
+    "summary": "This vintage system includes Bluetooth! CD Audio Speakers Hi Fi Retro FM Radio Aux! Check it out at https://www.ebay.com/itm/Home-Stereo-System-Bluetooth-Vintage-CD-Audio-Speakers-Hi-Fi-Retro-FM-Radio-Aux-/253221498737",
+    "keyword": "",
+    "URL": "/images/audio/1.jpeg",
+    "extraInfo": []
+
+  },
+    {
+    "id": 26,
+    "category": "games",
+    "itemTitle": "games 1",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Super Mario Galaxy!!",
+    "summary": "Best Game Ever!! You can find it on amazon or at your local Best Buy. Seriously the best game I've ever played!",
+    "keyword": "",
+    "URL": "/images/games/1.jpeg",
+    "extraInfo": []
+
+  },
+ {
+    "id": 27,
+    "category": "home",
+    "itemTitle": "Home Interior Decor",
+    "type": "image",
+    "date": "February 6",
+    "caption": "$129 Sayer White Leaning Bookcase, Crate and Barrel",
+    "summary": "Find many ideas for your home decor here at https://www.elledecor.com/design-decorate/interior-designers/g3183/home-decor-ideas/?slide=30",
+    "keyword": "",
+    "URL": "/images/home/bathroom1.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 28,
+    "category": "home",
+    "itemTitle": "Bernal Heights Studio Apt.",
+    "type": "image",
+    "date": "February 6",
+    "caption": "450sqft in San Francisco",
+    "summary": "This lovely studio sleeps 2, 1 bath, and has a 3-8min stay. Find more details on how you rent this place at https://www.vrbo.com/413030",
+    "keyword": "",
+    "URL": "/images/home/bed1.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 29,
+    "category": "home",
+    "itemTitle": "DIY Suitcase Table",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Home made decor you can make yourself!",
+    "summary": "Have your neighbors saying wow when they see your new DIY Suitcase Table! Instructions, along with more DIY home projects are available at http://www.goodhousekeeping.com/home/decorating-ideas/g1711/diy-home-decor/?slide=8",
+    "keyword": "",
+    "URL": "/images/home/suitcase1.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 30,
+    "category": "home",
+    "itemTitle": "Home DIY Tutorial",
+    "type": "video",
+    "date": "February 6",
+    "caption": "Fun ways to make your house your own!",
+    "summary": "See video on a bigger screen here at https://www.youtube.com/watch?v=rApemHrhswg.",
+    "keyword": "",
+    "URL": "/video/home/homevideo.mp4",
+    "extraInfo": []
+
+  },
+
+{
+    "id": 31,
+    "category": "home",
+    "itemTitle": "Home on the Range",
+    "type": "music",
+    "date": "February 6",
+    "caption": "Tom Willet 2010",
+    "summary": "See music video here at https://www.youtube.com/watch?v=Hs2rZG42X9I",
+    "keyword": "",
+    "URL": "/music/homesong1.mp3",
+    "extraInfo": []
+
+  },
+{
+    "id": 32,
+    "category": "kid",
+    "itemTitle": "Parenting Quote",
+    "type": "literature",
+    "date": "February 6",
+    "caption": "Great Parenting Quotes",
+    "summary": "These quotes will make you want to become a parent! https://www.parenting.com/parenting-advice/tips-tricks/17-amazing-parenting-quotes-will-make-you-better-parent",
+    "keyword": "",
+    "URL": "/images/kid/kid1.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 33,
+    "category": "kid",
+    "itemTitle": "DIY Scarecrow Costume",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Scarecrow Costume",
+    "summary": "My little one loved this! I so recommend! https://www.wherethesmileshavebeen.com/diy-scarecrow-costume/",
+    "keyword": "",
+    "URL": "/images/kid/kid2.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 34,
+    "category": "kid",
+    "itemTitle": "Slumber Party Ideas",
+    "type": "image",
+    "date": "February 6",
+    "caption": "DIY your slumber party",
+    "summary": "Here are some ideas for your next slumber party! https://www.buzzfeed.com/morganshanahan/slumber-party-ideas-for-the-best-sleepover-ever?bffbparents&s=mobile&utm_term=.hhm7E73Mv#.hgRNoNWz9",
+    "keyword": "",
+    "URL": "/images/kid/kid3.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 35,
+    "category": "movies",
+    "itemTitle": "Black Panter Art",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Black Panther ",
+    "summary": "Check this movie out now in theaters!",
+    "keyword": "",
+    "URL": "/images/movies/BlackP.png",
+    "extraInfo": []
+
+  },
+{
+    "id": 36,
+    "category": "movies",
+    "itemTitle": "Avengers",
+    "type": "video",
+    "date": "February 6",
+    "caption": "Infinity War",
+    "summary": "April 27,2018 my life will be complete. Check out the trailer here or on full screen at https://www.youtube.com/watch?v=ypAxxTLAFmQ",
+    "keyword": "",
+    "URL": "/video/movies/avengers1.mp4",
+    "extraInfo": []
+
+  },
+{
+    "id": 37,
+    "category": "movies",
+    "itemTitle": "Remember Me",
+    "type": "music",
+    "date": "February 6",
+    "caption": "Coco",
+    "summary": "Love this song!",
+    "keyword": "",
+    "URL": "/music/rememberme.mp3",
+    "extraInfo": []
+
+  },
+{
+    "id": 38,
+    "category": "music",
+    "itemTitle": "Roundtable Rival",
+    "type": "music",
+    "date": "February 6",
+    "caption": "Lindkey Stirling",
+    "summary": "Music video available at https://www.youtube.com/watch?v=jvipPYFebWc",
+    "keyword": "",
+    "URL": "/music/fiddle1.mp3",
+    "extraInfo": []
+
+  },
+{
+    "id": 39,
+    "category": "music",
+    "itemTitle": "Pray For Me",
+    "type": "music",
+    "date": "February 6",
+    "caption": "The Weeknd, Kendrick Lamar",
+    "summary": "Video of music here:https://www.youtube.com/watch?v=K5xERXE7pxI",
+    "keyword": "",
+    "URL": "/music/kendrick1.mp3",
+    "extraInfo": []
+
+  },
+{
+    "id": 40,
+    "category": "music",
+    "itemTitle": "Houses of the Holy",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Led Zeppelin",
+    "summary": "remastered original vinyl $17.99 at https://www.amazon.com/Houses-Holy-Remastered-Original-Vinyl/dp/B00M30VKWM/ref=pd_lpo_sbs_15_t_0/138-5576046-7529514?_encoding=UTF8&psc=1&refRID=HSZKDCBBDHZZPYMK2SJQ",
+    "keyword": "",
+    "URL": "/images/music/led1.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 41,
+    "category": "music",
+    "itemTitle": "Music Quote",
+    "type": "literature",
+    "date": "February 6",
+    "caption": "Shakespeare",
+    "summary": "My favorite music quote",
+    "keyword": "",
+    "URL": "/images/music/quote1.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 42,
+    "category": "pets",
+    "itemTitle": "Thinmint",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Adoptable Baby Female Shepherd, San Diego",
+    "summary": "Adpot adorable Thinmint at https://www.petfinder.com/dog/girl-scout-pup-thin-mint-41091824/ca/san-diego/california-labradors-retrievers-and-more-ca1874/",
+    "keyword": "",
+    "URL": "/images/pets/thinmintpup.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 43,
+    "category": "pets",
+    "itemTitle": "Ollie",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Adoptable Adult Macaw, San Diego",
+    "summary": "Adpot adorable Ollie at https://www.petfinder.com/bird/jupiter-39241866/ca/redlands/olive-branch-parrot-rescue-inc-ca1504/",
+    "keyword": "",
+    "URL": "/images/pets/bird1.jpg",
+    "extraInfo": []
+
+  },
+{
+    "id": 44,
+    "category": "pets",
+    "itemTitle": "Pitbull Falls Asleep to Dad Singing",
+    "type": "video",
+    "date": "February 6",
+    "caption": "Dog Lullaby | The Dodo",
+    "summary": "Super adorable pitbull dog!",
+    "keyword": "",
+    "URL": "/video/pet/petvideo1.mp4",
+    "extraInfo": []
+
+  },
+{
+    "id": 45,
+    "category": "sports",
+    "itemTitle": "Padres",
+    "type": "image",
+    "date": "February 6",
+    "caption": "Opening Day March 29, 2018!",
+    "summary": "San Diego opens up with home slate vs. Brewers on March 29, 2018! See their schedule here at https://www.mlb.com/padres/news/padres-release-2018-schedule/c-253898494",
+    "keyword": "",
+    "URL": "/images/sports/padres.JPG",
+    "extraInfo": []
+  },
+{
+    "id": 46,
+    "category": "toys",
+    "itemTitle": "Giant Pink Bear!",
+    "type": "image",
+    "date": "February 6",
+    "caption": "$31.99 Pink Bear Amazon",
+    "summary": "Make this fluffy bear yours at https://www.amazon.com/MorisMos-Giant-Cute-Teddy-Girlfriend/dp/B0179D6QNK/ref=sr_1_10?s=toys-and-games&ie=UTF8&qid=1520564387&sr=1-10&keywords=giant+teddy+bear",
+    "keyword": "",
+    "URL": "/images/toys/bear1.jpg",
+    "extraInfo": []
+  },
+{
+    "id": 47,
+    "category": "toys",
+    "itemTitle": "Nerf Tactical Vest Set",
+    "type": "image",
+    "date": "February 6",
+    "caption": "$20.99 Nerf, Amazon",
+    "summary": "Bought this for my kids and they loved it! https://www.amazon.com/Tactical-Vest-Nerf-N-Strike-Elite/dp/B01LZA814S/ref=sr_1_2_sspa?s=toys-and-games&ie=UTF8&qid=1520564477&sr=1-2-spons&keywords=nerf+gun&psc=1 ",
+    "keyword": "",
+    "URL": "/images/toys/nerf.jpg",
+    "extraInfo": []
+  },
+{
+    "id": 48,
+    "category": "toys",
+    "itemTitle": "Lite-Brite!",
+    "type": "image",
+    "date": "February 6",
+    "caption": "$14.97 Lite-Brite, Amazon",
+    "summary": "Lite-Brite Magic Screen Toy - Retro Style available on Amazon! So excited! https://www.amazon.com/Lite-Brite-Magic-Screen-Toy-Retro/dp/B01N6B8SX0/ref=sr_1_2?s=toys-and-games&ie=UTF8&qid=1520564528&sr=1-2&keywords=light+brite ",
+    "keyword": "",
+    "URL": "/images/toys/toy2.jpg",
+    "extraInfo": []
+  }
+
+]

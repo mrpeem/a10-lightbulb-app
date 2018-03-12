@@ -1,0 +1,105 @@
+{{>header}}
+
+</head>
+<body>
+
+{{>searchbar}}
+
+<div class="page-container">
+
+
+		<div class="categories-container">
+			<div class="content-container">
+				<div class="content-Title">
+					Today's Inspiration
+				</div>
+
+				<div class="content-Title">
+					<img src="/images/logo.png" style="width:100%;">
+				</div>
+			</div>
+
+				<div class="content-More">
+					<!--
+					<a href="/browse">More &gt;</a>-->
+				</div>
+			</div>
+			<div class="content-media">
+				<a href="/{{categoryTitle}}/{{itemId}}/showOneItem">{{{mediaHTML}}}</a>
+
+			</div>
+			<div class="categories-button">
+				<a href="/app/random">
+					<div class="categories">
+						Random
+					</div>
+				</a>
+
+				<div class="playbuttons">
+					{{#each dataTypeList}}
+						<a href="/app/{{title}}/filteredRandom">
+							<div id="{{title}}" class="categories">
+								{{dataType}}
+							</div>
+						</a>
+					{{/each}}
+				</div>
+				<div style="height: 5rem;">
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+		<div style="height: 5rem;"class="nav-down-cover">
+
+		</div>
+
+
+		<!-- SPACE FOR POPUP -->
+		<div id="profile_popup" class="modal"> </div>
+
+		<!-- BOTTOM NAVIGATION BAR -->
+		{{>navigation}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- __________________________________________________________________________-->
+{{>notification_popup}}
+
+<!--___________________________________________________________________________-->
+
+
+
+
+
+
+
+
+
+	</div>
+
+    {{>script}}
+
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+[
+  {
+    "userIdNumber": 0,
+    "userName": "Dummy User1",
+    "password": "1234",
+    "email":"dummy@ucsd.edu",
+    "actualName" : "Dummy User",
+    "profileImgURL": "/images/icons/default_profile.jpg",
+    "currentItemIndex": 0,
+    "isScreenShared": false,
+    "categoryList": [],
+    "favoriteList": [{
+      "title": "Activities",
+      "id": "activities"
+    }, {
+      "title": "Food",
+      "id": "food"
+    }, {
+      "title": "Travel",
+      "id": "travel"
+    }, {
+      "title": "Movies",
+      "id": "movies"
+    }, {
+      "title": "Pets",
+      "id": "pets"
+    }, {
+      "title": "Home",
+      "id": "home"
+    }],
+    "likedList" : [],
+    "bookmarkedList":[]
+  },
+  {
+    "userIdNumber": 1,
+    "userName": "yooseokSeo",
+    "password": "1234",
+    "email":"yos017@ucsd.edu",
+    "actualName" : "Yooseok Seo",
+    "profileImgURL": "/images/icons/default_profile.jpg",
+    "currentItemIndex": 0,
+    "currentCategorySelected": "random",
+    "isScreenShared": true,
+    "categoryList": [
+      {
+        "id": 1,
+        "category": "activities",
+        "itemTitle": "activity 2",
+        "type": "image",
+        "date": "February 6",
+        "caption": "activity 2 caption",
+        "summary": "activity 2 summary",
+        "keyword": "Beaches",
+        "URL": "/images/activities/2.jpeg",
+        "extraInfo": []
+
+      },
+      {
+        "id": 2,
+        "category": "activities",
+        "itemTitle": "activity 3",
+        "type": "image",
+        "date": "February 6",
+        "caption": "activity 3 caption",
+        "summary": "activity 3 summary",
+        "keyword": "Beaches",
+        "URL": "/images/activities/3.jpeg",
+        "extraInfo": []
+
+      },
+      {
+        "id": 3,
+        "category": "food",
+        "itemTitle": "food 1",
+        "type": "image",
+        "date": "February 6",
+        "caption": "food 1 caption",
+        "summary": "food 1 summary",
+        "keyword": "",
+        "URL": "/images/food/1.jpeg",
+        "extraInfo": []
+
+      },
+      {
+        "id": 4,
+        "category": "food",
+        "itemTitle": "food 2",
+        "type": "image",
+        "date": "February 6",
+        "caption": "food 2 caption",
+        "summary": "food 2 summary",
+        "keyword": "",
+        "URL": "/images/food/2.jpeg",
+        "extraInfo": []
+
+      },
+      {
+        "id": 5,
+        "category": "food",
+        "itemTitle": "food 3",
+        "type": "image",
+        "date": "February 6",
+        "caption": "food 3 caption",
+        "summary": "food 3 summary",
+        "keyword": "",
+        "URL": "/images/food/3.jpeg",
+        "extraInfo": []
+
+      }
+    ],
+    "favoriteList": [{
+      "title": "Activities",
+      "id": "activities"
+    }, {
+      "title": "Food",
+      "id": "food"
+    }, {
+      "title": "Travel",
+      "id": "travel"
+    }, {
+      "title": "Movies",
+      "id": "movies"
+    }, {
+      "title": "Pets",
+      "id": "pets"
+    }, {
+      "title": "Home",
+      "id": "home"
+    }],
+    "likedList" : [],
+    "bookmarkedList":[],
+  "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor"
+  }
+]

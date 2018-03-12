@@ -1,0 +1,188 @@
+{{>header}}
+<link href="/css/play.css" rel="stylesheet">
+</head>
+
+<body onload="check( {{itemID}} )"  >
+  {{>searchbar}}
+
+
+  <div class="page-container">
+
+    <div class="pageTitle-container">
+      <div class="page-back">
+        {{#if isScreenShared}}
+          <a href="/userData/{{userIdNumber}}/{{pageTitle}}/{{itemID}}/unsetShare">
+            <div style="color:red;" id="cancelGroupChat">
+              Exit
+            </div>
+          </a>
+        {{else}}
+          <a id="back" href="/"> &lt; Back  </a>
+        {{/if}}
+      </div>
+
+
+      <div class="page-title">
+        {{#if isScreenShared}}
+          <span style="color: red; font-size:2rem;">Screen Sharing</span>
+        {{else}}
+          {{pageTitle}}
+        {{/if}}
+
+      </div>
+
+      <!-- hide button to fix bugs for now
+      {{#if isScreenShared}}
+        <div style="color:black;" class="page-filter">
+          Filter
+        </div>
+      {{else}}
+        <div class="page-filter">
+          Filter
+        </div>
+      {{/if}}
+    -->
+
+
+    </div>
+
+    <div class="pageContent-container">
+      <div class="page-media">
+        {{{type}}}
+        {{#unless isOneItem}}
+          <a href="/{{pageTitle}}/left"><img id="arrow-left" src="/images/icons/arrow-left.svg" alt=""></a>
+          <a href="/{{pageTitle}}/right"><img id="arrow-right" src="/images/icons/arrow-right.svg" alt=""></a>
+        {{/unless}}
+      </div>
+      <div id="nav-cover-top">
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="new-options">
+
+        <!-- Share button -->
+        {{#if isOneItem}}
+          <a href="/{{pageTitle}}/{{itemID}}/shareOne" id="share-btn2" class="btn-floating more-options-btns"><i style="font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;" class="material-icons">Share</i></a>
+        {{else}}
+          <a href="/{{pageTitle}}/{{itemID}}/share" id="share-btn2" class="btn-floating more-options-btns"><i style="font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;" class="material-icons">Share</i></a>
+        {{/if}}
+
+
+        <!-- Bookmark button -->
+        <a id="bookmark-btn2" class="btn-floating more-options-btns">
+          <img id="bookmark-iconDefault" width="40" src="/images/icons/bookmark.png" class="material-icons" onclick="bookmark( {{itemID}} )"/>
+          <img id="bookmark-icon" width="40" src="/images/icons/bookmark_filledIn.png" alt="" onclick="bookmark( {{itemID}} )">
+        </a>
+
+        <!-- Like button -->
+        <a id="like-btn2" class="btn-floating more-options-btns">
+          <img id="like-iconDefault" width="30" src="/images/icons/heart-outline.png" class="material-icons" onclick="like( {{itemID}} )"/>
+          <img id="like-heart" width="30" src="/images/icons/heart-filledIn.png" alt="" onclick="like( {{itemID}} )">
+        </a>
+
+        <!-- Info button -->
+        {{#if isOneItem}}
+          <a id="info-btn2" href="/{{pageTitle}}/{{itemID}}/infoOne" class="btn-floating more-options-btns"><i style="font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;" class="material-icons">Info</i></a>
+        {{else}}
+          <a id="info-btn2" href="/{{pageTitle}}/{{itemID}}/info" class="btn-floating more-options-btns"><i style="font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;" class="material-icons">Info</i></a>
+        {{/if}}
+      </div>
+
+      {{#unless isAtChatroom}}
+        <div class="new-options2">
+          <div class="title">
+            {{itemTitle}}
+          </div>
+          <div class="caption">
+            {{caption}}
+          </div>
+        </div>
+
+      {{/unless}}
+
+
+
+
+
+
+
+    </div>
+    <div style="height: 10rem; width:100%;">
+
+    </div>
+    <!-- SPACE FOR POPUP -->
+    <div id="profile_popup" class="modal"> </div>
+
+    <div class="nav-share-2 chatroom-btns-layout">
+      {{#if isScreenShared}}
+        {{#unless isAtChatroom}}
+          <div class="group-chat-container">
+
+            <a>
+              <div>
+
+              </div>
+            </a>
+            <a href="/userData/{{userIdNumber}}/{{pageTitle}}/{{itemID}}/setChat">
+              <div id="enterChatRoom" class="">
+                <img src="/images/icons/chat50.png" alt="">
+                <div class="centered">
+                  Chat
+                </div>
+              </div>
+            </a>
+
+          </div>
+        {{/unless}}
+      {{/if}}
+
+    </div>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    {{#unless isAtChatroom}}
+      {{>navigation}}
+    {{/unless}}
+
+    {{#if isAtChatroom}}
+      <div class="chat-box-container">
+        <div class="chat-box-btns">
+          <a href="/userData/{{userIdNumber}}/{{pageTitle}}/{{itemID}}/unsetChat">
+            <div id="exit-chat" class="exit">
+              Exit
+            </div>
+          </a>
+          <div id="up-btn" class="up">
+            <img id="up-icon" src="/images/icons/up.svg" alt="">
+          </div>
+        </div>
+        <div class="chat-box-message-window">
+
+          <div id="conversation" class="message-window">
+
+
+
+          </div>
+        </div>
+
+        <div class="chat-box-message-input">
+          <input id="chat-input" type="text" name="" value="" placeholder="Message Here">
+          <input type="button" id="datasend" name="" value="SEND">
+        </div>
+      </div>
+
+    {{/if}}
+
+    <!-- notifications popup for liking, bookmarking, etc -->
+    {{>notification_popup}}
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.js"></script>
+    {{>chatScript}}
+    {{>script}}
+
+
+</body>
+
+</html>

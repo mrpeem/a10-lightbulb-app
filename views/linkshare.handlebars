@@ -1,0 +1,88 @@
+{{>header}}
+
+<link rel="stylesheet" href="/css/info.css">
+<link href="/css/profile.css" rel="stylesheet">
+<link href="/css/share.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page-container">
+    <div class="pageTitle-container">
+
+      <div class="page-back">
+        <a href="/sharedlink/{{itemId}}/show"> &lt; Back  </a>
+      </div>
+
+      <div class="page-title">
+        share
+      </div>
+
+      <div class="page-filter">
+
+      </div>
+
+    </div>
+    <div id="desc">
+
+    </div>
+
+    <div class="preview">
+
+        {{{mediaHTML}}}
+
+    </div>
+    <div class="page-subtitle">
+      Share Link
+    </div>
+    <div class="page-box page-box-padding share">
+      <input id="email" style="border: 0px; width:95%; height:1.5rem; font-size:1.5rem; padding-top:0;" type="text" name="" value="" placeholder="Email Address">
+      <div class="shareBtn">Send</div>
+      <div class="shareBtn">Copy</div>
+    </div>
+<!--
+    <div class="page-subtitle">
+      Send a Sharable Link to Others
+    </div>
+    <div class="page-box page-box-padding basic-padding share">
+      <input style="margin-top:1rem; border: 0px; width:95%; height:1.5rem; font-size:1.5rem;" type="text" name="" value="" placeholder="Email Address">
+      <div class="shareBtn">Send</div>
+    </div>
+
+    <div class="page-subtitle">
+      Get a Sharable Link
+    </div>
+    <div class="page-box page-box-padding basic-padding share">
+      <div style="margin-top:1rem; border: 0px; width:95%; height:1.5rem; font-size:1rem;" class="url">
+        localhost:3000/sharedlink/{{itemId}}/show
+      </div>
+      <div class="shareBtn">Copy</div>
+
+    </div>
+-->
+
+
+
+
+    <div class="nav-cover">
+    </div>
+
+    <!-- SPACE FOR POPUP -->
+    <div id="profile_popup" class="modal"> </div>
+
+
+    <!-- BOTTOM NAVIGATION BAR -->
+
+
+
+
+  </div>
+
+  {{>script}}
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="/js/info.js"></script>
+  <script src="/js/jquery-1.11.0.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+</body>
+
+</html>

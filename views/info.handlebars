@@ -1,0 +1,149 @@
+{{>header}}
+<link href="/css/play.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/info.css">
+<link href="/css/profile.css" rel="stylesheet">
+
+</head>
+
+<body onload="check( {{itemId}} )"  >
+
+  {{>searchbar}}
+
+  <div class="page-container">
+    <div class="pageTitle-container">
+
+      <div class="page-back">
+        {{#if isOneItem}}
+        <a href="/{{categoryTitle}}/{{itemId}}/showOneItem"> &lt; Back  </a>
+        {{else}}
+        <a href="/{{categoryTitle}}/{{itemId}}/show"> &lt; Back  </a>
+        {{/if}}
+      </div>
+
+      <div class="page-title">
+        info
+      </div>
+
+      <!-- Bookmark and like button -->
+      <div class="page-filter">
+
+        <!-- Bookmark button -->
+        <div id="bookmark-filter" onclick="bookmark( {{itemId}} )" >
+          <a id="bookmark-btn2" class="btn-floating more-options-btns" >
+            <img id="bookmark-iconDefault" width="40" src="/images/icons/bookmark.png" class="material-icons">
+            <img id="bookmark-icon" width="40" src="/images/icons/bookmark_filledIn.png" alt="">
+          </a>
+        </div>
+
+        <div id="like-filter" onclick="like( {{itemId}} )" >
+          <a id="like-btn2" class="btn-floating more-options-btns">
+            <img id="like-iconDefault" width="30" src="/images/icons/heart-outline.png" class="material-icons"/>
+            <img id="like-heart" width="30" src="/images/icons/heart-filledIn.png" alt="">
+          </a>
+        </div>
+
+      </div>
+
+
+
+    </div>
+    <div id="desc" class="page-subtitle">
+      Title
+    </div>
+    <div class="page-box page-box-padding basic-padding">
+      {{itemTitle}}
+    </div>
+
+    <div class="page-subtitle">
+      Description
+    </div>
+
+    <div class="page-box page-box-padding basic-padding">
+      {{description}}
+    </div>
+
+    {{#each extra}}
+    <div class="page-subtitle">
+      {{title}}
+    </div>
+        {{{contentHTML}}}
+        {{#each container}}
+          {{{mediaHTML}}}
+        {{/each}}
+   {{/each}}
+
+
+    <div class="nav-cover"></div>
+
+    <!-- SPACE FOR POPUP -->
+    <div id="profile_popup" class="modal"> </div>
+
+    <div class="nav-share-2 chatroom-btns-layout">
+      {{#if isScreenShared}}
+        {{#unless isAtChatroom}}
+          <div class="group-chat-container">
+
+            <a>
+              <div>
+
+              </div>
+            </a>
+            <a href="/userData/{{userIdNumber}}/{{categoryTitle}}/{{itemId}}/setChatInfo">
+              <div id="enterChatRoom" class="">
+                <img src="/images/icons/chat50.png" alt=""><div class="centered">
+                  Chat
+                </div>
+              </div>
+            </a>
+
+          </div>
+        {{/unless}}
+      {{/if}}
+
+    </div>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    {{#unless isAtChatroom}}
+      {{>navigation}}
+    {{/unless}}
+
+    {{#if isAtChatroom}}
+      <div class="chat-box-container">
+        <div class="chat-box-btns">
+          <a href="/userData/{{userIdNumber}}/{{categoryTitle}}/{{itemId}}/unsetChatInfo">
+            <div id="exit-chat" class="exit">
+              Exit
+            </div>
+          </a>
+          <div id="up-btn" class="up">
+            <img id="up-icon" src="/images/icons/up.svg" alt="">
+          </div>
+        </div>
+
+        <div class="chat-box-message-window">
+          <div id="conversation" class="message-window">
+          </div>
+        </div>
+
+        <div class="chat-box-message-input">
+          <input id="chat-input" type="text" name="" value="" placeholder="Message Here">
+          <input type="button" id="datasend" name="" value="SEND">
+        </div>
+      </div>
+
+    {{/if}}
+
+  </div>
+
+  <!-- notifications popup for liking, bookmarking, etc -->
+  {{>notification_popup}}
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/js/materialize.js"></script>
+  {{>chatScript}}
+  {{>script}}
+
+
+</body>
+
+</html>

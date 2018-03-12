@@ -1,0 +1,20 @@
+<!-- Search dropdown overlay -->
+<div id="search-overlay" class="block">
+  <div class="top">
+    <div id='search-box'>
+      <i id="close-icon-top" class="fa fa-times fa-2x" onclick="hide_overlay()"></i>
+
+      <form action="." method='get' target='_top'>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search categories..">
+      </form>
+
+      <ul id="allCategoryUL">
+        {{#each categoryList}}
+          <li><a href="/app/{{id}}"> {{title}} </a> </li>
+        {{/each}}
+      </ul>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+{{>header}}
+</head>
+<body>
+
+  {{>searchbar}}
+
+  <div class="page-container">
+    <div class="categories-container">
+
+	  <div class="content-container">
+	    <div class="content-Title"> All Categories </div>
+
+	    <div id="con-more">
+	      <div class="content-More more">   </div>
+
+	      <!-- hide button to fix bugs for now
+	      <div class="content-More more"> Sort </div>
+	      -->
+	    </div>
+
+	  </div>
+
+	  <div class="categories-button">
+	  	{{#each categoryList}}
+	  	  <a href="/app/{{id}}">
+		    <div id="{{id}}" class="categories">
+			  {{title}}
+			</div>
+		  </a>
+		{{/each}}
+	  </div>
+    <div style="height:5rem; width:100%;">
+
+    </div>
+	</div>
+  </div>
+
+  <!-- SPACE FOR POPUP -->
+  <div id="profile_popup" class="modal"> </div>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  {{>navigation}}
+
+  {{>script}}
+</body>
+
+</html>

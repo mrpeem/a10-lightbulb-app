@@ -1,0 +1,40 @@
+{
+  "loginStatus": false,
+  "userIdNumber": 0,
+  "userName": null,
+  "actualName": null,
+  "email" : null,
+  "profileImgURL": "/images/icons/default_profile.jpg",
+  "currentPageViewed": null,
+  "currentCategorySelected": null,
+  "currentItemIndex": 0,
+  "isScreenShared": false,
+  "isAtChatroom": false,
+  "categoryList": [],
+  "favoriteList": [{
+    "title": "Activities",
+    "id": "activities"
+  }, {
+    "title": "Food",
+    "id": "food"
+  }, {
+    "title": "Travel",
+    "id": "travel"
+  }, {
+    "title": "Movies",
+    "id": "movies"
+  }, {
+    "title": "Pets",
+    "id": "pets"
+  }, {
+    "title": "Home",
+    "id": "home"
+  }],
+  "userList": [],
+  "likedList" : [],
+  "bookmarkedList": [],
+  "ipIndex" : -1,
+  "ip" : null,
+  "hostname" : null,
+  "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor"
+}

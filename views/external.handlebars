@@ -1,0 +1,58 @@
+{{>header}}
+
+<link rel="stylesheet" href="/css/info.css">
+<link href="/css/profile.css" rel="stylesheet">
+</head>
+{{>searchbar}}
+<body>
+  <div class="page-container">
+    <div class="pageTitle-container">
+
+      <div class="page-back">
+        <a href="/{{categoryTitle}}/{{itemId}}/info"> &lt; Back  </a>
+      </div>
+
+      <div class="page-title">
+        web
+      </div>
+
+      <div class="page-filter">
+        <div class="topNav-save-btn">
+          Save
+        </div>
+      </div>
+
+    </div>
+
+
+    <div style="margin-bottom:5rem;">
+    </div>
+
+    <div class="pageContent-container">
+      <iframe src="{{URL}}" width="100%" height="800"></iframe>
+
+
+    </div>
+
+    <!-- SPACE FOR POPUP -->
+    <div id="profile_popup" class="modal"> </div>
+
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    {{>navigation}}
+
+
+
+  </div>
+  <div class="notification-hidden">
+
+    <div class="save-popup">
+      <img id="check-icon" src="/images/icons/check-500.png" alt=""> Added to Your Profile
+    </div>
+  </div>
+
+  	{{>script}}
+    <script src="/js/external.js"></script>
+</body>
+
+</html>

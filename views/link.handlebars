@@ -1,0 +1,91 @@
+{{>header}}
+  <link href="/css/play.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/link.css">
+</head>
+<body>
+
+  <div class="page-container">
+
+    <div class="pageTitle-container">
+        <div class="page-logo">
+          <a id="back" href="/"> LOGO </a>
+        </div>
+
+
+      <div class="page-title">
+        {{pageTitle}}
+      </div>
+
+
+        <div class="page-filter">
+          Login
+        </div>
+    </div>
+
+    <div class="pageContent-container">
+      <div class="page-media">
+        {{{type}}}
+      </div>
+      <div id="nav-cover-top">
+
+      </div>
+
+      <!--
+
+      <div id="more-options">
+        <div style="width: 100%;height:6rem;" class="page-media-more fixed-action-btn horizontal click-to-toggle">
+          <span id="page-media-title">{{itemTitle}}</span>
+          <span id="page-madia-caption">{{caption}}</span>
+            <a id="moreBtn" class="page-media-more btn-floating btn-large red">
+              <i style="font-size: 1rem;" class="material-icons">More</i>
+            </a>
+            <ul style="right:auto; position:absolute; width:100%; text-align:center; top:60%;" class="sub-btns">
+              <li><a href="/sharedlink/{{itemID}}/show/share" id="share-btn" class="btn-floating more-options-btns"><i class="material-icons">Share</i></a></li>
+              <li><a class="btn-floating darken-1 more-options-btns"><i class="material-icons">Save</i></a></li>
+              <li><a class="btn-floating more-options-btns"><i class="material-icons">Like</i></a></li>
+              <li><a href="/sharedlink/{{itemID}}/show/info" class="btn-floating more-options-btns"><i class="material-icons">Info</i></a></li>
+            </ul>
+          </div>
+      </div>
+    -->
+
+    <div class="new-options">
+      <a href="/sharedlink/{{itemID}}/show/share" id="share-btn2" class="btn-floating more-options-btns"><i class="material-icons">Share</i></a>
+      <a id="save-btn2" class="btn-floating darken-1 more-options-btns"><i class="material-icons">Save</i></a>
+      <a id="like-btn2" class="btn-floating more-options-btns"><i class="material-icons">Like</i></a>
+      <a id="info-btn2" href="/sharedlink/{{itemID}}/show/info" class="btn-floating more-options-btns"><i class="material-icons">Info</i></a>
+    </div>
+    {{#unless isAtChatroom}}
+    <div class="new-options2">
+      <div class="title">
+        {{itemTitle}}
+      </div>
+      <div class="caption">
+        {{caption}}
+      </div>
+    </div>
+
+    {{/unless}}
+
+
+    
+      {{>footer}}
+
+    </div>
+
+    <!-- SPACE FOR POPUP -->
+    <div id="profile_popup" class="modal"> </div>
+
+
+
+
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/js/materialize.js"></script>
+  <script src="/js/play.js"></script>
+  {{>script}}
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<div class="nav-container">
+
+  <!-- Home -->
+  <a href="/">
+    <div class="home nav-divider">
+      <div class="nav-images">
+        <img src="/images/icons/nav/home-100.png" alt="home navigation button">
+      </div>
+      <div class="nav-title">
+        Home
+      </div>
+    </div>
+  </a>
+
+  <!-- Browse -->
+  <a href="/browse">
+    <div class="browse nav-divider">
+      <div class="nav-images">
+        <img src="/images/icons/nav/browse-100.png" alt="browse navigation button">
+      </div>
+      <div class="nav-title">
+        Categories
+      </div>
+    </div>
+  </a>
+
+  <!-- Profile <a class="profile" onclick="checkLoginStatus( {{currentUser.loginStatus}} )" >-->
+   <a class="profile" onclick="checkLoginStatus( {{loginStatus}} )">
+     <div class="profile nav-divider">
+     <div class="nav-images">
+       <img src="/images/icons/nav/profile-100.png" alt="profile navigation button">
+     </div>
+     <div class="nav-title">
+       Profile
+     </div>
+   </div>
+ </a>
+
+ <!-- Search -->
+ <a class="search" onclick="show_overlay()" style="background-color: #9ad0e41f">
+   <div class="search">
+     <div class="nav-images">
+       <img src="/images/icons/nav/search-100.png" alt="search navigation button">
+     </div>
+     <div class="nav-title">
+       Search
+     </div>
+   </div>
+ </a>
+</div>

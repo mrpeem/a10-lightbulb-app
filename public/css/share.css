@@ -1,0 +1,148 @@
+
+.share {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "email send copy";
+  height: 4rem;
+  border-radius: 0.5rem;
+
+}
+
+
+.share2 {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "email send";
+  height: 4rem;
+  border-radius: 0.5rem;
+
+}
+
+
+.preview {
+  background-color: gray;
+  height: 30vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.preview-content{
+
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.url {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid white;
+  font-size: 1.5rem;
+  width: 100%;
+  background-color: #5CA7BA;
+  color: white;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: x-large;
+
+}
+
+#media {
+
+  width: 100%;
+  height: 100%;
+}
+
+#group-chat-send-a{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+#email::placeholder{
+  color: black;
+}
+
+#username::placeholder{
+  color: black;
+}
+.required{
+  margin: 0 2rem;
+
+}
+
+.nav-cover-down{
+  width: 100%;
+  height: 5rem;
+}
+.page-subtitle-alt{
+  width: 100%;
+  height: 28rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  "link screen";
+}
+
+.page-input-box-alt{
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  width: 90%;
+}
+
+.page-input-box-alt div{
+  height: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.page-input-box-alt div input{
+  border: 1px solid gray;
+}
+.page-link-box-alt{
+  grid-area:link;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-right: 1px solid gray;
+}
+.alt-cover{
+  height: 3rem;
+
+  margin: 0 1rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.page-screen-box-alt{
+  grid-area:screen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}

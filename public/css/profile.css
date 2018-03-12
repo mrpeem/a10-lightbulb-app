@@ -1,0 +1,404 @@
+.nav-container {
+  background-color: #DFDFDF;
+  position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "Home Brower Profile Search";
+  bottom: 0;
+  text-align: center;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+
+.nav-images{
+  padding-top: 1rem;
+}
+
+.nav-images img {
+  width:2rem;
+}
+
+.nav-title {
+  font-size: 1rem;
+}
+
+.nav-divider{
+  border-right: 1px solid #efefef;
+
+}
+
+.heading-container{
+  display:grid;
+  grid-template-columns: 1fr, 1fr, 1fr;
+  grid-column-gap: 1em;
+ }
+
+.profile_pic{
+  grid-column: 1;
+  margin-top: 15px;
+  margin-left: 15px;
+
+}
+.username{
+  grid-column: 1;
+  margin-left: 18px;
+  font-size: larger;
+}
+.description{
+  grid-column: 2;
+  margin-top: 20px;
+  font-size: medium;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+ }
+ .edit-profile{
+   grid-column: 2;
+
+   margin-right: 20px;
+
+ }
+
+ #profile_popup {
+   max-height: 80%;
+ }
+
+
+#profile_popup .modal-content{
+  padding: 0;
+  height: 100%;
+}
+#profile_popup .modal-content .modal-header{
+  text-align: center;
+  height: 30%;
+  border: 0;
+}
+
+#profile_popup .modal-content .modal-body{
+  padding: 0;
+  width: 100%;
+  height: 85%;
+}
+
+.body-container{
+  margin: auto;
+  width: 95%;
+  height: 95%;
+  border: 1px solid #e5e5e5;
+
+
+}
+
+#myModalLabel {
+  position: relative;
+}
+
+.tab-pane{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "Login Signup";
+}
+
+.tab {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+#nav-tabs{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "Login Signup";
+
+}
+
+#nav-tabs   a{
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+
+}
+
+#login-tab {
+  grid-area: Login;
+  border-bottom: 0;
+}
+
+#signup-tab {
+  grid-area: Signup;
+  border-bottom: 0;
+}
+
+#tab-content{
+  border: 1px solid #e5e5e5;
+  border-top: 0;
+}
+
+
+#email-container{
+
+}
+
+#email1::placeholder{
+  color: black;
+  font-size: 1.3rem;
+}
+
+.form-horizontal{
+  width: 100%;
+}
+
+#password-container{
+
+}
+#forgotp{
+  position: absolute;
+  right: 2rem;
+  bottom: 15.5rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+
+#login-btn{
+  width: 100%;
+
+}
+
+#flogin-btn{
+  width: 100%;
+}
+
+#glogin-btn{
+  width: 100%;
+}
+
+#profile_popup{
+  border-radius: 1rem;
+}
+#exampleInputPassword1::placeholder{
+  font-size: 1.3rem;
+  color: black;
+
+}
+
+#exampleInputPassword1{
+  margin: auto;
+  width: 90%;
+}
+
+.or{
+  position: relative;
+  text-align: center;
+  bottom: 0.7rem;
+}
+
+#or-span {
+  padding: 0 0.3rem;
+  background-color: white;
+}
+
+#hr{
+  margin-bottom: 0;
+}
+
+#email1{
+  margin: auto;
+  width: 90%;
+  height: 2rem;
+}
+#email{
+  width: 90%;
+  margin: auto;
+    height: 2rem;
+    padding-top: 1rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+
+#email::placeholder{
+  font-size: 1.3rem;
+  color: black;
+}
+#name{
+  width: 90%;
+  margin: auto;
+  height: 2rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+#name::placeholder{
+  font-size: 1.3rem;
+  color: black;
+}
+#username{
+  width: 90%;
+  margin: auto;
+    height: 2rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+#username::placeholder{
+  font-size: 1.3rem;
+  color: black;
+}
+#password{
+  width: 90%;
+  margin: auto;
+    height: 2rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+#password::placeholder{
+  font-size: 1.3rem;
+  color: black;
+}
+
+#submitBtn{
+  width: 90%;
+  margin: auto;
+}
+#signup-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-popup{
+  display: none;
+  border-radius: 1rem;
+  height: 16rem;
+  font-size: 1.2rem;
+  padding:  1rem;
+  background-color: red;
+  width: 15rem;
+  text-align: center;
+  margin-top: 20rem;
+  z-index: 1000;
+
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -100%);
+    font-size: 1rem;
+}
+
+.notification-hidden{
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#check-icon{
+  width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+audio#audio
+{
+  position:absolute;
+  top:50%;
+  transform: translate(10%,-10%);
+}
+
+#mediaHTML {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  display: block;
+  width: 50%;
+  padding:1%;
+  float: left;
+  position: relative
+  padding-top:50%;
+}
+
+.nav{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "bookmark uploaded shared";
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: medium;
+
+}
+
+#profile-bookmark{
+  grid-area:bookmark;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#profile-upload{
+  grid-area:uploaded ;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#profile-share{
+  grid-area:shared ;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-profile{
+  position: relative;
+}
+
+
+#profile-edit{
+  border: 1px solid gray;
+  padding: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  top: -2.5rem;
+  border-radius: 7px;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+#profile-logout{
+  border: 1px solid gray;
+  padding: 0.5rem;
+  position: absolute;
+  right: 1rem;
+  top: -2.5rem;
+  border-radius: 7px;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+.tabs_container{
+  margin-top: 2rem;
+}
+
+.heading-container{
+  margin-top: 1.5rem;
+}
+
+/* pop up css; combined into one file */
+input::-webkit-input-placeholder {
+     opacity: 0.3; /*Change opacity of placeholder text*/
+}

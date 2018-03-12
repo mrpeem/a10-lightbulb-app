@@ -1,0 +1,35 @@
+.nav-up-cover{
+  height:5rem;
+  width:100%;
+}
+
+.preference-Title div{
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.preference-Search{
+  width: 95%;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.search-50 img{
+  height: 2rem;
+  width: 2rem;
+}
+
+.categories-button form{
+  height: 3rem;
+  margin: 0.5rem 0;
+}
+
+.categories-button form label{
+  font-size: 2rem;
+}
+
+.nav-cover2{
+  height: 5rem;
+}

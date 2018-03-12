@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+
+
+
+
+	<title>InspireU</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+  	<link href="/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+  	<link href="/css/index.css" rel="stylesheet">
+	<link href="/css/profile.css" rel="stylesheet">
+	<link href="/css/play.css" rel="stylesheet" type="text/css">
+	<link href="/css/notification_popup.css" rel="stylesheet" type="text/css">
+
+
+	<!-- for search overlay -->
+	<link href="/css/search.css" rel="stylesheet">
+	<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+
+
+<link rel="stylesheet" href="/css/info.css">
+<link href="/css/profile.css" rel="stylesheet">
+<link href="/css/share.css" rel="stylesheet">
+</head>
+{{>searchbar}}
+
+<body>
+  <div class="page-container">
+    <div class="pageTitle-container">
+      <div class="page-back">
+        {{#if isOneItem}}
+          <a href="/{{categoryTitle}}/{{itemId}}/showOneItem"> &lt; Back  </a>
+        {{else}}
+          <a href="/{{categoryTitle}}/{{itemId}}/show"> &lt; Back  </a>
+        {{/if}}
+      </div>
+
+      <div class="page-title">
+        share
+      </div>
+
+      <div class="page-filter">
+
+      </div>
+
+    </div>
+    <div id="desc">
+
+    </div>
+
+    <div class="preview">
+
+      {{{mediaHTML}}}
+
+    </div>
+    {{#if data.viewAlt}}
+      <div class="page-subtitle-alt">
+
+        <div class="page-link-box-alt">
+          <div class="alt-cover">
+            Share Link
+          </div>
+          <div class="page-input-box-alt">
+            <div class="">
+                <input id="email" style="border: 1px solid gray; width:100%; height:2rem; font-size:1.5rem; padding-top:0;" type="text" name="" value="" placeholder="Email Address">
+            </div>
+	    <input style="display:none" id="link" name="link" value="{{categoryTitle}}/{{itemId}}/showOneItem">
+
+
+
+
+
+          </div>
+          <div style="width:90%; height:3rem;" id="link-send" class="shareBtn">Send</div>
+          <div class="" style="margin:0 1rem;">
+
+          </div>
+          <div class="" style="margin:0 1rem; margin-top:4rem;">
+            Send someone this inspiration with Share Link! Type in their email to send the link or copy and paste it where ever you’d like!
+          </div>
+
+
+        </div>
+        <div class="page-screen-box-alt">
+          <div class="alt-cover">
+            Share Screen
+          </div>
+          <div class="page-input-box-alt">
+            <div class="">
+                <input id="email" style="border: 1px solid gray; width:100%; height:2rem; font-size:1.5rem; padding-top:0;" type="text" name="" value="" placeholder="UserName">
+            </div>
+
+
+
+
+          </div>
+
+
+          <a style="width:90%; height:3rem;" id="group-chat-send-a" href="/userData/{{userIdNumber}}/{{categoryTitle}}/{{itemId}}/setShare">
+
+            <div id="group-chat-send" class="shareBtn">Start Sharing</div>
+          </a>
+          <div class="" style="color:red; margin:0 1rem; ">
+            you are required to login to use screen sharing.
+          </div>
+          <div class="" style="margin:0 1rem; margin-top:1rem;">
+            Let other users see your current inspiration screen with Screen Sharing! Enter your friend’s username and have the ability to share your screen with them while also chatting.
+          </div>
+        </div>
+
+      </div>
+
+
+
+    {{else}}
+      <div class="page-subtitle">
+        Share Link
+      </div>
+      <div class="page-box page-box-padding share">
+        <input id="email" style="border: 1px solid gray; width:95%; height:3rem; font-size:1.5rem; padding-top:0;" type="text" name="" value="" placeholder="">
+				<input style="display:none" id="link" name="link" value="{{categoryTitle}}/{{itemId}}/showOneItem">
+
+        <div id="link-send" class="shareBtn">Send</div>
+        <div id="link-copy" class="shareBtn">Copy</div>
+      </div>
+			<div class="" style="margin:0 1rem; margin-top:1rem;">
+				Send someone this inspiration with Share Link! Type in their email to send the link or copy and paste it where ever you’d like!
+			</div>
+
+
+
+
+
+
+      {{#unless isOneItem}}
+        <div class="page-subtitle">
+          Screen Sharing with Others
+        </div>
+        <div class="page-box page-box-padding share2">
+          <input id="username" style="border: 1px solid gray; height: margin-top:1rem; width:95%; height:3rem; font-size:1.5rem;" type="text" name="" value="" placeholder="UserName">
+
+          <a id="group-chat-send-a" href="/userData/{{userIdNumber}}/{{categoryTitle}}/{{itemId}}/setShare">
+
+
+            <div id="group-chat-send" class="shareBtn">Start Sharing</div>
+          </a>
+        </div>
+        <div class="required" style="color: red;">
+          you are required to login to use screen sharing.
+        </div>
+				<div class="" style="margin:0 1rem; margin-top:1rem;">
+					Let other users see your current inspiration screen with Screen Sharing! Enter your friend’s username and have the ability to share your screen with them while also chatting.
+				</div>
+        <div style="color: red;" class="required">
+
+        </div>
+				<div style="height:5rem; width:100%;">
+					
+				</div>
+
+  </div>
+
+  {{/unless}}
+
+  {{/if}}
+
+  <div class="nav-cover-down">
+  </div>
+
+  <!-- SPACE FOR POPUP -->
+  <div id="profile_popup" class="modal"> </div>
+  {{#unless isOneItem}}
+    <div class="nav-share-2 chatroom-btns-layout">
+      {{#if isScreenShared}}
+        {{#unless isAtChatroom}}
+          <div class="group-chat-container">
+
+            <a>
+              <div>
+
+              </div>
+            </a>
+            <a href="/userData/{{userIdNumber}}/{{categoryTitle}}/{{itemId}}/setChatShare">
+              <div id="enterChatRoom" class="">
+                <img src="/images/icons/chat50.png" alt="">
+                <div class="centered">
+                  Chat
+                </div>
+              </div>
+            </a>
+
+          </div>
+        {{/unless}}
+      {{/if}}
+
+
+    </div>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    {{#unless isAtChatroom}}
+      {{>navigation}}
+    {{/unless}}
+
+    {{#if isAtChatroom}}
+      <div class="chat-box-container">
+        <div class="chat-box-btns">
+          <a href="/userData/{{userIdNumber}}/{{categoryTitle}}/{{itemId}}/unsetChatShare">
+            <div id="exit-chat" class="exit">
+              Exit
+            </div>
+          </a>
+          <div id="up-btn" class="up">
+            <img id="up-icon" src="/images/icons/up.svg" alt="">
+          </div>
+        </div>
+        <div class="chat-box-message-window">
+
+          <div id="conversation" class="message-window">
+
+
+
+          </div>
+        </div>
+
+        <div class="chat-box-message-input">
+          <input id="chat-input" type="text" name="" value="" placeholder="Message Here">
+          <input type="button" id="datasend" name="" value="SEND">
+        </div>
+      </div>
+
+    {{/if}}
+
+  {{/unless}}
+
+
+  </div>
+  <div class="notification-hidden">
+
+    <div class="save-popup">
+      <img id="check-icon" src="/images/icons/check-500.png" alt=""> Added to Your Profile
+    </div>
+  </div>
+
+  {{>script}} {{>chatScript}}
+
+  <script src="/js/share.js">
+  </script>
+</body>
+
+</html>

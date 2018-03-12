@@ -1,0 +1,888 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+.page-container {
+
+  min-height: 100%;
+  width: 100%;
+  overflow: scroll;
+
+}
+
+.overflowHidden{
+  overflow: hidden;
+}
+
+.pageTitle-container{
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.7fr 2fr 0.7fr;
+  grid-template-areas: "Back Title Filter";
+  padding-top: 1rem;
+  background-color: #DFDFDF;
+  position:fixed;
+  width: 100%;
+  height: 4.5rem;
+  z-index: 100;
+}
+
+.page-title{
+  font-size: 2rem;
+  grid-area: Title;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+
+
+.page-back, .page-filter{
+  font-size: 1.1rem;
+  color: red;
+  margin: 0 1rem;
+  margin-top: 1.4rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+
+.page-filter{
+  text-align: right;
+}
+
+.page-media{
+  margin-top: 4.5rem;
+  height: 100vw;
+  background-color: gray;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-media{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.page-media #arrow-left, .page-media #arrow-right{
+  position: absolute;
+  width: 5rem;
+  top: 40vw;
+}
+
+#arrow-left {
+  left: 0;
+}
+
+#arrow-right {
+  right:0
+}
+
+#media {
+  width: 100%;
+}
+
+.page-media-more {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-areas:
+  "Title Title Btn"
+  "Caption Caption Btn";
+  height: 5rem;
+
+}
+
+#page-media-title{
+  grid-area: Title;
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#page-madia-caption{
+  grid-area: Caption;
+  display: block;
+  font-size: 1.2rem;
+
+}
+
+.page-media-more{
+  grid-area:Btn;
+}
+
+#more-options{
+  width: 100%;
+  position: relative;
+}
+
+#more-options div{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+
+
+}
+.more-options-btns i{
+  font-size: 1.1
+  rem;
+}
+.pageContent-container{
+  position: relative;
+
+}
+#nav-cover-top{
+
+}
+
+.page-logo{
+  font-size:2rem;
+  margin-left: 1rem;
+}
+
+#moreBtn{
+  margin-top:auto;
+
+  margin-left:auto;
+  margin-bottom: auto;
+}
+
+.sub-btns li a{
+  height: 45px;
+  width: 45px;
+}
+
+.sub-btns li a i{
+ line-height: 45px;
+}
+.group-chat-container{
+   position: fixed;
+   bottom: 7.9rem;
+   width: 100%;
+   display: grid;
+   grid-template-rows: 1fr;
+   grid-template-columns: 2fr 3fr;
+   grid-template-areas:
+   "Cancel Enter";
+   font-size: 1.3rem;
+   right: -5rem;
+}
+.group-chat-container a{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+}
+
+
+
+
+.group-chat-btn-layout{
+  border-radius: 1rem;
+  background-color: #a9a9a9;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#cancelGroupChat{
+  width: 100%;
+  height: 100%;
+}
+
+#enterChatRoom{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center
+}
+
+.chat-box-container{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+}
+.chat-box-message-window{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.chat-box-message-input{
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 8fr 2fr;
+  grid-template-areas:
+  "Cancel Enter";
+
+}
+#chat-input{
+  padding:  0 0.5rem;
+  width:90%;
+  border: 1px solid #a9a9a9;
+  border-radius: 1rem;
+  margin: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 2.5rem;
+}
+
+  #chat-input::placeholder{
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    padding: 0 1rem;
+  }
+
+  .message-window{
+    overflow: scroll;
+    padding:  0 1rem;
+    width:100%;
+    border: 1px solid #a9a9a9;
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    height: 7rem;
+    background-color: #DFDFDF;
+    font-size: 1.3rem;
+  }
+  .chat-box-btns{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-areas:
+    "Cancel . . Up";
+    font-size: 1.3rem;
+
+
+  }
+
+  .up{
+    grid-area: Up;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9a9a9;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    height: 2rem;
+    margin-top:auto;
+
+  }
+
+  .exit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9a9a9;
+    grid-area: Cancel;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    height: 2rem;
+
+
+
+  }
+
+  #datasend {
+    margin: 0;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    height: 2.5rem;
+    border: 1px solid #a9a9a9;
+    border-radius: 0.5rem;
+  }
+
+  .new-options{
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-rows:  1fr;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr 0.3fr;
+    grid-template-areas:
+
+    ". btn1 btn2 btn3 btn4 .";
+    border-bottom:1px solid #a9a9a9;
+
+  }
+
+
+
+  #share-btn2{
+    grid-area: btn1;
+    margin: 0 auto;
+  }
+
+  #bookmark-btn2{
+    grid-area: btn2;
+    margin: 0 auto;
+  }
+
+  #like-btn2{
+    grid-area: btn3;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #info-btn2{
+    grid-area: btn4;
+    margin: 0 auto;
+  }
+
+  .new-options2{
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-rows:  1fr 1fr;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr 0.3fr;
+    grid-template-areas:
+
+    ". Title Title Title Title  ."
+    ". caption caption caption caption .";
+
+
+  }
+
+  .title{
+    grid-area: Title;
+    font-size: 2.5rem;
+    margin: auto 0;
+    font-weight:bold;
+  }
+
+  .caption{
+    grid-area: caption;
+    font-size: 1rem;
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+}
+
+ .search{
+   background-color: #c1cecc;
+
+ }
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+.page-container {
+
+  min-height: 100%;
+  width: 100%;
+  overflow: scroll;
+
+}
+
+.overflowHidden{
+  overflow: hidden;
+}
+
+.pageTitle-container{
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.7fr 2fr 0.7fr;
+  grid-template-areas: "Back Title Filter";
+  padding-top: 1rem;
+  background-color: #DFDFDF;
+  position:fixed;
+  width: 100%;
+  height: 4.5rem;
+  z-index: 100;
+}
+
+.page-title{
+  font-size: 2rem;
+  grid-area: Title;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+
+
+.page-back, .page-filter{
+  font-size: 1.1rem;
+  color: red;
+  margin: 0 1rem;
+  margin-top: 1.4rem;
+
+}
+
+.page-filter{
+  text-align: right;
+}
+
+.page-media{
+  margin-top: 4.5rem;
+  height: 100vw;
+  background-color: gray;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-media{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.page-media #arrow-left, .page-media #arrow-right{
+  position: absolute;
+  width: 5rem;
+  top: 40vw;
+}
+
+#arrow-left {
+  left: 0;
+}
+
+#arrow-right {
+  right:0
+}
+
+#media {
+  width: 100%;
+}
+
+.page-media-more {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-areas:
+  "Title Title Btn"
+  "Caption Caption Btn";
+  height: 5rem;
+
+}
+
+#page-media-title{
+  grid-area: Title;
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#page-madia-caption{
+  grid-area: Caption;
+  display: block;
+  font-size: 1.2rem;
+
+}
+
+.page-media-more{
+  grid-area:Btn;
+}
+
+#more-options{
+  width: 100%;
+  position: relative;
+}
+
+#more-options div{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+
+
+}
+.more-options-btns i{
+  font-size: 1.1rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+.pageContent-container{
+  position: relative;
+
+}
+#nav-cover-top{
+
+}
+
+.page-logo{
+  font-size:2rem;
+  margin-left: 1rem;
+}
+
+#moreBtn{
+  margin-top:auto;
+
+  margin-left:auto;
+  margin-bottom: auto;
+}
+
+.sub-btns li a{
+  height: 45px;
+  width: 45px;
+}
+
+.sub-btns li a i{
+ line-height: 45px;
+}
+.group-chat-container{
+   position: fixed;
+   bottom: 7.9rem;
+   width: 100%;
+   display: grid;
+   grid-template-rows: 1fr;
+   grid-template-columns: 2fr 3fr;
+   grid-template-areas:
+   "Cancel Enter";
+   font-size: 1.3rem;
+   right: -5rem;
+}
+.group-chat-container a{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+}
+
+
+
+
+.group-chat-btn-layout{
+  border-radius: 1rem;
+  background-color: #a9a9a9;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#cancelGroupChat{
+  width: 100%;
+  height: 100%;
+}
+
+#enterChatRoom{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center
+}
+
+.chat-box-container{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+}
+.chat-box-message-window{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.chat-box-message-input{
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 8fr 2fr;
+  grid-template-areas:
+  "Cancel Enter";
+
+}
+#chat-input{
+  padding:  0 0.5rem;
+  width:90%;
+  border: 1px solid #a9a9a9;
+  border-radius: 1rem;
+  margin: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 2.5rem;
+}
+
+  #chat-input::placeholder{
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    padding: 0 1rem;
+  }
+
+  .message-window{
+    overflow: scroll;
+    padding:  0 1rem;
+    width:100%;
+    border: 1px solid #a9a9a9;
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    height: 7rem;
+    background-color: #DFDFDF;
+    font-size: 1.3rem;
+  }
+  .chat-box-btns{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-areas:
+    "Cancel . . Up";
+    font-size: 1.3rem;
+
+
+  }
+
+  .up{
+    grid-area: Up;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9a9a9;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    height: 2rem;
+    margin-top:auto;
+
+  }
+
+  .exit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9a9a9;
+    grid-area: Cancel;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    height: 2rem;
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  }
+
+  #datasend {
+    margin: 0;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    height: 2.5rem;
+    border: 1px solid #a9a9a9;
+    border-radius: 0.5rem;
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  }
+
+
+  .new-options{
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-rows:  1fr;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr 0.3fr;
+    grid-template-areas:
+
+    ". btn1 btn2 btn3 btn4 .";
+    border-bottom:1px solid #a9a9a9;
+
+  }
+
+
+
+  #share-btn2{
+    grid-area: btn1;
+    margin: 0 auto;
+    background-color: #5CA7BA;
+
+  }
+
+  #bookmark-btn2{
+    grid-area: btn2;
+    margin: 0 auto;
+    background-color: #5CA7BA;
+
+  }
+
+  #like-btn2{
+    grid-area: btn3;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #5CA7BA;
+
+  }
+
+  #info-btn2{
+    grid-area: btn4;
+    margin: 0 auto;
+    background-color: #5CA7BA;
+
+  }
+  #signUpBtn{
+    background-color: #5CA7BA;
+  }
+  #login-btn{
+    background-color: #5CA7BA;
+  }
+  #flogin-btn{
+    background-color: #5CA7BA;
+  }
+
+  .new-options2{
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-rows:  1fr 1fr;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr 0.3fr;
+    grid-template-areas:
+
+    ". Title Title Title Title  ."
+    ". caption caption caption caption .";
+
+
+  }
+
+  .title{
+    grid-area: Title;
+    font-size: 2.5rem;
+    margin: auto 0;
+    font-weight:bold;
+  }
+
+  .caption{
+    grid-area: caption;
+    font-size: 1rem;
+    font-family: "arial";
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+ .search{
+   background-color: #B2CDE3;
+
+ }
+.new-options2{
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+#activities{
+  background-color: #96D6E5;
+  color: black;
+}
+#art{
+  background-color: #96D6E5;
+  color: black;
+}
+#audio{
+  background-color: #96D6E5;
+  color: black;
+}
+#beauty{
+  background-color: #96D6E5;
+  color: black;
+}
+#games{
+  background-color: #96D6E5;
+  color: black;
+}
+#garden{
+  background-color: #96D6E5;
+  color: black;
+}
+#food{
+  background-color: #96D6E5;
+  color: black;
+}
+#home{
+  background-color: #96D6E5;
+  color: black;
+}
+#kid{
+  background-color: #96D6E5;
+  color: black;
+}
+#movies{
+  background-color: #96D6E5;
+  color: black;
+}
+#music{
+  background-color: #96D6E5;
+  color: black;
+}
+#pets{
+  background-color: #96D6E5;
+  color: black;
+}
+#sports{
+  background-color: #96D6E5;
+  color: black;
+}
+#toys{
+  background-color: #96D6E5;
+  color: black;
+}

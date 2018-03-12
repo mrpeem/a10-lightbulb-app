@@ -1,0 +1,196 @@
+<div class="modal-content">
+    <!-- Header -->
+    <div class="modal-header" style="position:relative;">
+
+        <h4 class="modal-title" id="myModalLabel"><img src="/images/logo.png" style="width:100%; margin-top:2rem;">
+          <button style="font-size:2rem; position:absolute; top:0.5rem; right:0.5rem; color:black; opacity:.6;" type="button" class="close" data-dismiss="modal" aria-hidden="true"> X </button></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-11">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="nav-tabs">
+                    <li id="login-tab" ><a href="#Login" data-toggle="tab">Login</a></li>
+                    <li id="signup-tab" class="active"><a href="#Registration" data-toggle="tab">Signup</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content" id="tab-content">
+
+                    <!-- Login form -->
+                    <div class="tab-pane " id="Login">
+                        <form role="form" class="form-horizontal">
+
+                            <!-- Email -->
+                            <div class="form-group">
+                              <div class="row">
+                                <div id="email-container" class="col-sm-12 ">
+                                    <input style="height: 2rem; margin-bottom:0; margin-top:1rem;" type="email" class="form-control" id="email1" placeholder="Email" name="email1" />
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group">
+                              <div class="row">
+                                <div id="password-container" class="col-sm-12">
+                                    <input style="height: 2rem; margin-bottom:0;" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="exampleInputPassword1" />
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Name (hidden) -->
+                            <div class="form-group" style="display:none">
+                                    <input type="text" class="form-control" id="fb_gg_name" name="fb_gg_name"/>
+                            </div>
+
+                            <!-- Image (hidden) -->
+                            <div class="form-group" style="display:none">
+                                    <input type="text" class="form-control" id="fb_gg_image" name="fb_gg_image"/>
+                            </div>
+
+                            <!-- Username (hidden) -->
+                            <div class="form-group" style="display:none">
+                                    <input type="text" class="form-control" id="fb_gg_username" name="fb_gg_username"/>
+                            </div>
+
+
+                            <!-- Forgot password -->
+                            <div class="form-group">
+                              <a id="forgotp" href="">Forgot password?</a>
+                            </div>
+
+                            <!-- Submit button -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input type="submit" id="login-btn" type="button" class="btn btn-primary btn-sm" value="Login" />
+                                </div>
+                            </div>
+
+
+                            <hr id="hr">
+
+
+                            <div class="or">
+                                <span id="or-span">OR</span>
+                            </div>
+
+                            <!-- Login with Facebook -->
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <!-- Facebook submit button -->
+                                    <input id="flogin-btn" type="button" class="btn btn-primary btn-sm" value="Login with Facebook" onclick="checkLoginState();"/>
+
+                                </div>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+
+                    <!-- Registration form -->
+                    <div class="tab-pane active" id="Registration">
+                        <form id="addFriendForm" role="form">
+
+                          <!-- Email -->
+                          <div class="form-group">
+                            <input type="email" class="form-control signup-input" id="email" placeholder="Email" name="email">
+                          </div>
+
+                          <!-- Name -->
+                             <div class="form-group">
+                              <input type="text" class="form-control signup-input" id="name" placeholder="Fullname" name="name">
+                            </div>
+
+                            <!-- Username -->
+                            <div class="form-group">
+                              <input type="text" class="form-control signup-input" id="username" placeholder="Username" name="username">
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group">
+                              <input type="password" class="form-control signup-input" id="password" placeholder="Password" name="password">
+                            </div>
+
+                            <!-- Sign-up button -->
+                            <div id="signup-btn" class="form-group">
+                              <input type="submit" id="signUpBtn" class="btn btn-default signup-input" value="Sign Up" ></input>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{>notification_popup}}
+
+<!-- Check if user enter correct login information -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+//var socket = io.connect('http://localhost:3000');
+//var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');
+var socket = io.connect('https://a9-team2.herokuapp.com/');
+
+    //---------
+
+    //for login
+    $('#login-btn').click(function(e)
+    {
+        e.preventDefault();
+
+        var email = $('#email1').val();
+        var pWord = $('#exampleInputPassword1').val();
+        var usrName = $('fb_gg_username').val();
+        var usrImg = $('fb_gg_image').val();
+        var actualName = $('fb_gg_name').val();
+        socket.emit('login', email, pWord, usrName, usrImg, actualName);
+    });
+
+    socket.on('failedLogin', function()
+    {
+        $('.login-fail-popup').fadeIn(500);
+        $('.login-fail-popup').fadeOut(2500);
+    });
+
+    //show login success message and go to homepage
+    socket.on('successfulLogin', function()
+    {
+        $('.login-popup').fadeIn(500, function()
+        {
+            //undo effect of preventDefault and reload page
+            location.reload();
+        });
+    })
+
+    //---------
+
+    //for signup
+    $('#signUpBtn').click(function(e)
+    {
+        e.preventDefault();
+
+        var email = $('#email').val();
+        var actualName = $('#name').val();
+        var usrName = $('#username').val();
+        var pWord = $('#password').val();
+        var usrImg = '/images/icons/default_profile.jpg';
+        socket.emit('register', email, pWord, usrName, usrImg, actualName);
+    });
+
+    socket.on('alreadyExist', function()
+    {
+        $('.register-fail-popup').fadeIn(500);
+        $('.register-fail-popup').fadeOut(2000);
+    })
+
+</script>
