@@ -156,10 +156,6 @@
 
 }
 
-#email1::placeholder{
-  color: black;
-  font-size: 1.3rem;
-}
 
 .form-horizontal{
   width: 100%;
@@ -192,16 +188,7 @@
 #profile_popup{
   border-radius: 1rem;
 }
-#exampleInputPassword1::placeholder{
-  font-size: 1.3rem;
-  color: black;
 
-}
-
-#exampleInputPassword1{
-  margin: auto;
-  width: 90%;
-}
 
 .or{
   position: relative;
@@ -225,7 +212,9 @@
 #description,
 #originalPassword,
 #newPassword1,
-#newPassword2{
+#newPassword2,
+#exampleInputPassword1,
+#email1{
   width: 90%;
   margin: auto;
     height: 2rem;
@@ -238,7 +227,9 @@
 #description::placeholder,
 #originalPassword::placeholder,
 #newPassword1::placeholder,
-#newPassword2::placeholder{
+#newPassword2::placeholder,
+#exampleInputPassword1::placeholder,
+#email1{
   font-size: 1.3rem;
   color: black;
 }

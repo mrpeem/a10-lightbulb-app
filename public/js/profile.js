@@ -41,7 +41,8 @@ function changeInfo(email, actualName, userName, description)
     //reaload page if all info are valid
     if(existingEmail == 'false' && existingUserName == 'false')
     {
-      location.reload();
+      window.location.hash = 'editedProfile';
+      window.location.reload();
     }
 
   });
@@ -62,8 +63,20 @@ function changePassword(originalPassword, newPassword1, newPassword2)
     //reaload page if all info are valid
     if(correctPassword == 'true' && validPassword == 'true')
     {
-      location.reload();
+      window.location.hash = 'editedProfile';
+      window.location.reload();
     }
 
   });
 }
+
+//When the document has loaded, call the function
+document.addEventListener("DOMContentLoaded", function(event) 
+{ 
+  if(window.location.hash == "#editedProfile"){
+    console.log("The Page has been reloaded!");
+    $('.profile-edited-popup').fadeIn(0);
+    $('.profile-edited-popup').fadeOut(2500);
+
+  }
+});

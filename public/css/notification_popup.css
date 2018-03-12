@@ -4,7 +4,8 @@
 .like-fail-popup,
 .login-popup,
 .login-fail-popup,
-.register-fail-popup
+.register-fail-popup,
+.profile-edited-popup
 {
   display: none;
   border-radius: 1rem;

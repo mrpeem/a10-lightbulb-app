@@ -65,3 +65,12 @@ function like(itemID, pageLoad)
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", function(event) 
+{ 
+  if(window.location.hash == "#loggedIn"){
+    console.log("The Page has been reloaded!");
+    $('.login-popup').fadeIn(50);
+    $('.login-popup').fadeOut(2500);
+  }
+});

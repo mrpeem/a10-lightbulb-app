@@ -18,26 +18,21 @@
                 <div class="tab-content" id="tab-content">
 
                     <!-- Login form -->
-                    <div class="tab-pane " id="Login">
-                        <form role="form" class="form-horizontal">
+                    <div class="tab-pane" id="Login">
+                        <form role="form">
 
-                            <!-- Email -->
-                            <div class="form-group">
-                              <div class="row">
-                                <div id="email-container" class="col-sm-12 ">
-                                    <input style="height: 2rem; margin-bottom:0; margin-top:1rem;" type="email" class="form-control" id="email1" placeholder="Email" name="email1" />
-                                </div>
-                              </div>
-                            </div>
+                          <!-- Email -->
+                          <div class="form-group">
+                            <input type="email" class="form-control signup-input" id="email1" placeholder="Email" >
+                          </div>
 
                             <!-- Password -->
-                            <div class="form-group">
-                              <div class="row">
-                                <div id="password-container" class="col-sm-12">
-                                    <input style="height: 2rem; margin-bottom:0;" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="exampleInputPassword1" />
-                                </div>
-                              </div>
-                            </div>
+                          <div class="form-group">
+                            <input type="password" class="form-control signup-input" id="exampleInputPassword1" placeholder="Password">
+
+                            <!--for showing error message; empty for now -->
+                            <center id="incorrect-login" style="color:red"> </center>
+                          </div>
 
                             <!-- Name (hidden) -->
                             <div class="form-group" style="display:none">
@@ -55,10 +50,10 @@
                             </div>
 
 
-                            <!-- Forgot password -->
+                            <!-- Forgot password 
                             <div class="form-group">
                               <a id="forgotp" href="">Forgot password?</a>
-                            </div>
+                            </div>-->
 
                             <!-- Submit button -->
                             <div class="row">
@@ -97,6 +92,9 @@
                           <!-- Email -->
                           <div class="form-group">
                             <input type="email" class="form-control signup-input" id="email" placeholder="Email" name="email">
+
+                            <!--for showing error message; empty for now -->
+                            <center id="email-exists" style="color:red"> </center>
                           </div>
 
                           <!-- Name -->
@@ -162,18 +160,19 @@ var socket = io.connect('http://localhost:3000');
 
     socket.on('failedLogin', function()
     {
-        $('.login-fail-popup').fadeIn(500);
-        $('.login-fail-popup').fadeOut(2500);
+        $('#incorrect-login').text("*incorrect email or password*");
     });
 
     //show login success message and go to homepage
     socket.on('successfulLogin', function()
     {
-        $('.login-popup').fadeIn(500, function()
-        {
-            //undo effect of preventDefault and reload page
-            location.reload();
-        });
+        window.location.hash = 'loggedIn';
+        window.location.reload();
+        // $('.login-popup').fadeIn(500, function()
+        // {
+        //     //undo effect of preventDefault and reload page
+        //     location.reload();
+        // });
     })
 
     //---------
@@ -193,8 +192,10 @@ var socket = io.connect('http://localhost:3000');
 
     socket.on('alreadyExist', function()
     {
-        $('.register-fail-popup').fadeIn(500);
-        $('.register-fail-popup').fadeOut(2000);
+        $('#email-exists').text("*email already exists*");
     })
+
+
+
 
 </script>
