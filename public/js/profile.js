@@ -77,6 +77,9 @@ document.addEventListener("DOMContentLoaded", function(event)
     console.log("The Page has been reloaded!");
     $('.profile-edited-popup').fadeIn(0);
     $('.profile-edited-popup').fadeOut(2500);
+    window.location.hash = ''; //remove hash so message only shows once
+
 
   }
 });
+

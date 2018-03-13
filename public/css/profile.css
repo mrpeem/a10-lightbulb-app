@@ -205,8 +205,10 @@
   margin-bottom: 0;
 }
 
+#email,
 #email_register,
 #name,
+#username,
 #username_register,
 #password,
 #description,

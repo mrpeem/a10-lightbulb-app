@@ -72,5 +72,7 @@ document.addEventListener("DOMContentLoaded", function(event)
     console.log("The Page has been reloaded!");
     $('.login-popup').fadeIn(50);
     $('.login-popup').fadeOut(2500);
+    window.location.hash = ''; //remove hash so popup only shows once
+
   }
 });
