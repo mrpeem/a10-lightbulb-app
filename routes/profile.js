@@ -99,6 +99,11 @@ exports.register = function(email, password, userName, img, actualName)
   wholeUserData.push(JSON.parse( JSON.stringify(newUser) ));
   populateUserData(id); 
 
+  for (var i = 0; i < data.length; i++) {
+    userData.categoryList.push(data[i])
+  }
+
+
   return true;
 }
 

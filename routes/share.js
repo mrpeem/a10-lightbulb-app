@@ -66,29 +66,31 @@ exports.view = function(req, res) {
     userIdNumber = 0;
   }
 
-
-
-  switch (categoryListUser[currentItemIndex].type) {
-    case 'image':
-      console.log('image Type');
-      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
-      break;
-    case 'video':
-      console.log('video Type');
-      mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
-      break;
-    case 'literature':
-      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
-      break;
-
-      case 'music':
-        mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
+  try
+  {
+    switch (categoryListUser[currentItemIndex].type) {
+      case 'image':
+        console.log('image Type');
+        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+        break;
+      case 'video':
+        console.log('video Type');
+        mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
+        break;
+      case 'literature':
+        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
         break;
 
-    default:
-      console.log('check mediaType!');
-      break;
+        case 'music':
+          mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
+          break;
+
+      default:
+        console.log('check mediaType!');
+        break;
+    }
   }
+  catch (err) { console.log("categoryListUser is null"); }
 
 
 
@@ -126,29 +128,31 @@ exports.viewAlt = function(req, res) {
     userIdNumber = 0;
   }
 
-
-
-  switch (categoryListUser[currentItemIndex].type) {
-    case 'image':
-      console.log('image Type');
-      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
-      break;
-    case 'video':
-      console.log('video Type');
-      mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
-      break;
-    case 'literature':
-      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
-      break;
-
-      case 'music':
-        mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
+  try
+  {
+    switch (categoryListUser[currentItemIndex].type) {
+      case 'image':
+        console.log('image Type');
+        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+        break;
+      case 'video':
+        console.log('video Type');
+        mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
+        break;
+      case 'literature':
+        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
         break;
 
-    default:
-      console.log('check mediaType!');
-      break;
+        case 'music':
+          mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
+          break;
+
+      default:
+        console.log('check mediaType!');
+        break;
+    }
   }
+  catch (err) { console.log("categoryList is null"); }
 
 
 

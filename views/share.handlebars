@@ -173,7 +173,9 @@
   </div>
 
   <!-- SPACE FOR POPUP -->
-  <div id="profile_popup" class="modal"> </div>
+  {{>notification_popup}}
+
+
   {{#unless isOneItem}}
     <div class="nav-share-2 chatroom-btns-layout">
       {{#if isScreenShared}}

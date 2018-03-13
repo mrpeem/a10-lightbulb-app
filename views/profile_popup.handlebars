@@ -91,7 +91,7 @@
 
                           <!-- Email -->
                           <div class="form-group">
-                            <input type="email" class="form-control signup-input" id="email" placeholder="Email" name="email">
+                            <input type="email" class="form-control signup-input" id="email_register" placeholder="Email" name="email">
 
                             <!--for showing error message; empty for now -->
                             <center id="email-exists" style="color:red"> </center>
@@ -104,7 +104,7 @@
 
                             <!-- Username -->
                             <div class="form-group">
-                              <input type="text" class="form-control signup-input" id="username" placeholder="Username" name="username">
+                              <input type="text" class="form-control signup-input" id="username_register" placeholder="Username" name="username">
                             </div>
 
                             <!-- Password -->
@@ -182,9 +182,9 @@ var socket = io.connect('http://localhost:3000');
     {
         e.preventDefault();
 
-        var email = $('#email').val();
+        var email = $('#email_register').val();
         var actualName = $('#name').val();
-        var usrName = $('#username').val();
+        var usrName = $('#username_register').val();
         var pWord = $('#password').val();
         var usrImg = '/images/icons/default_profile.jpg';
         socket.emit('register', email, pWord, usrName, usrImg, actualName);
