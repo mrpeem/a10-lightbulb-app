@@ -319,58 +319,48 @@ audio#audio
 .nav{
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr ;
   grid-template-rows: 1fr;
   grid-template-areas:
-    "bookmark uploaded shared";
+    "bookmark shared";
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: medium;
+  display:inline-block;
 
 }
 
-#profile-bookmark{
-  grid-area:bookmark;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+
+
+
+#profile-bookmark,
+#profile-share
+{
+  color:black;
+  width: 100%;
 }
 
 
-#profile-upload{
-  grid-area:uploaded ;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-#profile-share{
-  grid-area:shared ;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 
-.edit-profile{
+.edit-profile,
+.logout{
   position: relative;
+  width:100px;
 }
-
 
 #profile-edit{
   border: 1px solid gray;
   padding: 0.5rem;
   position: absolute;
-  left: 1rem;
   top: -2.5rem;
   border-radius: 7px;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
+
 #profile-logout{
   border: 1px solid gray;
   padding: 0.5rem;
   position: absolute;
-  right: 1rem;
+  right: 2rem;
   top: -2.5rem;
   border-radius: 7px;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;

@@ -338,6 +338,7 @@ exports.viewOne = function(req, res) {
   });
 };
 
+//for sharing inspiration via email
 exports.email = function(email, link, itemID)
 {
   console.log("exports.email");
@@ -347,17 +348,6 @@ exports.email = function(email, link, itemID)
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
   nodemailer.createTestAccount((err, account) => {
-      
-      // default SMTP transport (fake account)
-      /*let transporter = nodemailer.createTransport({
-          host: 'smtp.ethereal.email',
-          port: 587,
-          secure: false, // true for 465, false for other ports
-          auth: {
-              user: account.user, // generated ethereal user
-              pass: account.pass // generated ethereal password
-          }
-      });*/
 
       var transporter = nodemailer.createTransport(
       {
@@ -370,14 +360,13 @@ exports.email = function(email, link, itemID)
 
       var host = "https://cogs120-lightbulb-app.herokuapp.com/"
 
-
-      var name = (userData.loginStatus)? userData.actualName : "Someone";
+      var senderName = (userData.loginStatus)? userData.actualName : "Someone";
 
       // setup email data with unicode symbols
       let mailOptions = {
           from: '"Lightbulb! App 💡" <do_not_reply@lightbulb.com>', // sender address
           to: email, // list of receivers
-          subject: name+' shared an Inspiration with you!', // Subject line
+          subject: senderName+' shared an Inspiration with you!', // Subject line
           text: host+link, // plain text body
           html: '<b><a href="'+host+link+'">View Inspiration!</a></b>' // html body
       };
@@ -397,27 +386,17 @@ exports.email = function(email, link, itemID)
   });
 
   //adding to "sharedList"
-  if (this.checkShare(itemID) == -1) //not in sharedList yet
-  {
-    console.log("add to sharedList");
-    userData.sharedList.push(data[itemID]);
-  }
-}
-
-
-//return index of item if bookmarked; -1 otherwise
-exports.checkShare = function(itemID)
-{
-  console.log("checkShare; itemID = "+itemID);
   for (var i = 0; i < userData.sharedList.length; i++)
   {
-    if (itemID == userData.sharedList[i].id)
+    if (itemID == userData.sharedList[i].id) //add if item not in sharedList
     {
-      return i;
+      console.log("add to sharedList");
+      userData.sharedList.push(data[itemID]);
     }
   }
-  return -1;
+
 }
+
 
 exports.getUserData = function()
 {
