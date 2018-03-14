@@ -370,11 +370,14 @@ exports.email = function(email, link, itemID)
 
       var host = "https://cogs120-lightbulb-app.herokuapp.com/"
 
+
+      var name = (userData.loginStatus)? userData.actualName : "Someone";
+
       // setup email data with unicode symbols
       let mailOptions = {
           from: '"Lightbulb! App 💡" <do_not_reply@lightbulb.com>', // sender address
           to: email, // list of receivers
-          subject: 'Someone shared an Inspiration with you!', // Subject line
+          subject: name+' shared an Inspiration with you!', // Subject line
           text: host+link, // plain text body
           html: '<b><a href="'+host+link+'">View Inspiration!</a></b>' // html body
       };
