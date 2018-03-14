@@ -170,7 +170,7 @@ io.sockets.on('connection', function(socket){
 
     if (alreadyExist != -1)
     {
-      socket.emit('alreadyExist');
+      socket.emit('failedSignUp');
     }
     else
     {

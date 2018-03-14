@@ -22,6 +22,13 @@ function checkLoginStatus(signedIn)
 
 
 
+function login(email, password, userName, userImg, actualName)
+{
+  socket.emit('login', email, password, userName, userImg, actualName);
+
+
+}
+
 function logout()
 {
   socket.emit('logout');
@@ -78,8 +85,6 @@ document.addEventListener("DOMContentLoaded", function(event)
     $('.profile-edited-popup').fadeIn(0);
     $('.profile-edited-popup').fadeOut(2500);
     window.location.hash = ''; //remove hash so message only shows once
-
-
   }
 });
 

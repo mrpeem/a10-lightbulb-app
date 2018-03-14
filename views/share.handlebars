@@ -1,21 +1,4 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-
-
-
-
-
-	<title>InspireU</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-  	<link href="/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
-  	<link href="/css/index.css" rel="stylesheet">
-	<link href="/css/profile.css" rel="stylesheet">
-	<link href="/css/play.css" rel="stylesheet" type="text/css">
-	<link href="/css/notification_popup.css" rel="stylesheet" type="text/css">
+{{>header}}
 
 
 	<!-- for search overlay -->
@@ -34,9 +17,9 @@
     <div class="pageTitle-container">
       <div class="page-back">
         {{#if isOneItem}}
-          <a href="/{{categoryTitle}}/{{itemId}}/showOneItem"> &lt; Back  </a>
+          <a href="/{{categoryTitle}}/{{itemId}}/showOneItem" id="back"> &lt; Back  </a>
         {{else}}
-          <a href="/{{categoryTitle}}/{{itemId}}/show"> &lt; Back  </a>
+          <a href="/{{categoryTitle}}/{{itemId}}/show" id="back"> &lt; Back  </a>
         {{/if}}
       </div>
 
@@ -203,6 +186,7 @@
 
     </div>
 
+
     <!-- BOTTOM NAVIGATION BAR -->
     {{#unless isAtChatroom}}
       {{>navigation}}
@@ -241,12 +225,7 @@
 
 
   </div>
-  <div class="notification-hidden">
 
-    <div class="save-popup">
-      <img id="check-icon" src="/images/icons/check-500.png" alt=""> Added to Your Profile
-    </div>
-  </div>
 
   {{>script}} {{>chatScript}}
 

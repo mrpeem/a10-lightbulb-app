@@ -368,14 +368,13 @@ exports.email = function(email, link)
         }
       });
 
-      //var host = "http://localhost:3000/";
-      var host = "https://a9-team2.herokuapp.com/" //switch when deploying
+      var host = "https://cogs120-lightbulb-app.herokuapp.com/"
 
       // setup email data with unicode symbols
       let mailOptions = {
-          from: '"Our Appname" <do_not_reply@appname.com>', // sender address
+          from: '"Lightbulb! App 💡" <do_not_reply@lightbulb.com>', // sender address
           to: email, // list of receivers
-          subject: 'Check this out! ✔', // Subject line
+          subject: 'Someone shared an Inspiration with you!', // Subject line
           text: host+link, // plain text body
           html: '<b><a href="'+host+link+'">View Inspiration!</a></b>' // html body
       };

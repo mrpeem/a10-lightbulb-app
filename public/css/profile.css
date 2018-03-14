@@ -376,6 +376,13 @@ audio#audio
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
+#profile-logout:active,
+#profile-edit:active 
+{ 
+  background-color:#B2CDE3; 
+  opacity:0.3; 
+}
+
 .tabs_container{
   margin-top: 2rem;
 }

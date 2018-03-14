@@ -34,27 +34,6 @@
                             <center id="incorrect-login" style="color:red"> </center>
                           </div>
 
-                            <!-- Name (hidden) -->
-                            <div class="form-group" style="display:none">
-                                    <input type="text" class="form-control" id="fb_gg_name" name="fb_gg_name"/>
-                            </div>
-
-                            <!-- Image (hidden) -->
-                            <div class="form-group" style="display:none">
-                                    <input type="text" class="form-control" id="fb_gg_image" name="fb_gg_image"/>
-                            </div>
-
-                            <!-- Username (hidden) -->
-                            <div class="form-group" style="display:none">
-                                    <input type="text" class="form-control" id="fb_gg_username" name="fb_gg_username"/>
-                            </div>
-
-
-                            <!-- Forgot password 
-                            <div class="form-group">
-                              <a id="forgotp" href="">Forgot password?</a>
-                            </div>-->
-
                             <!-- Submit button -->
                             <div class="row">
                                 <div class="col-sm-12">
@@ -79,6 +58,16 @@
 
                                 </div>
                             </div>
+
+                            <div class="g-signin2" data-onsuccess="onSignIn">btn</div><br><br>
+
+
+                            <!-- Login with Google -->
+                            <div class="row" id="customBtn1">
+                                <div class="col-sm-12">
+                                    <input id="glogin-btn" type="button" class="btn btn-primary btn-sm" value="Login with Google">
+                                </div>
+                            </div> 
 
 
 
@@ -132,18 +121,13 @@
     </div>
 </div>
 
-<center>
-{{>notification_popup}}
-</center>
 
 <!-- Check if user enter correct login information -->
 <script src="/socket.io/socket.io.js"></script>
 <script>
-var socket = io.connect();
-//var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');
-//var socket = io.connect('https://a9-team2.herokuapp.com/');
 
-    //---------
+
+var socket = io.connect();
 
     //for login
     $('#login-btn').click(function(e)
@@ -152,11 +136,11 @@ var socket = io.connect();
 
         var email = $('#email1').val();
         var pWord = $('#exampleInputPassword1').val();
-        var usrName = $('fb_gg_username').val();
-        var usrImg = $('fb_gg_image').val();
-        var actualName = $('fb_gg_name').val();
-        socket.emit('login', email, pWord, usrName, usrImg, actualName);
+        //socket.emit('login', email, pWord, usrName, usrImg, actualName);
+        login(email, pWord, null, null, null);
     });
+
+
 
     socket.on('failedLogin', function()
     {
@@ -190,7 +174,7 @@ var socket = io.connect();
         socket.emit('register', email, pWord, usrName, usrImg, actualName);
     });
 
-    socket.on('alreadyExist', function()
+    socket.on('failedSignUp', function()
     {
         $('#email-exists').text("*email already exists*");
     })
