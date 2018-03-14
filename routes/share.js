@@ -338,7 +338,7 @@ exports.viewOne = function(req, res) {
   });
 };
 
-exports.email = function(email, link)
+exports.email = function(email, link, itemID)
 {
   console.log("exports.email");
   console.log("Shared "+link+" with "+email);
@@ -392,6 +392,33 @@ exports.email = function(email, link)
           // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
       });
   });
+
+  //adding to "sharedList"
+  if (this.checkShare(itemID) == -1) //not in sharedList yet
+  {
+    console.log("add to sharedList");
+    userData.sharedList.push(data[itemID]);
+  }
+}
+
+
+//return index of item if bookmarked; -1 otherwise
+exports.checkShare = function(itemID)
+{
+  console.log("checkShare; itemID = "+itemID);
+  for (var i = 0; i < userData.sharedList.length; i++)
+  {
+    if (itemID == userData.sharedList[i].id)
+    {
+      return i;
+    }
+  }
+  return -1;
+}
+
+exports.getUserData = function()
+{
+  return userData;
 }
 
 exports.updateUserData = function(usrData)

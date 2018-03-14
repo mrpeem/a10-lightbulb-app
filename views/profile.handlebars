@@ -67,7 +67,9 @@
 
         <!-- Shared tab -->
         <div class="tab-pane" id="Shared">
-            <h5> <center><br>SHARED CONTENT.. </center></h5>
+            {{#each sharedList}}
+              <a href="/{{category}}/{{id}}/showOneItem"> {{{mediaHTML}}} </a>
+            {{/each}}
 
         </div>
 

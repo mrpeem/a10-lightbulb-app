@@ -29,7 +29,8 @@
       "id": "home"
     }],
     "likedList" : [],
-    "bookmarkedList":[]
+    "bookmarkedList":[],
+    "sharedList":[]
   },
   {
     "userIdNumber": 1,
@@ -129,6 +130,7 @@
     }],
     "likedList" : [],
     "bookmarkedList":[],
+    "sharedList": [],
   "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor"
   }
 ]

@@ -59,7 +59,7 @@
 
 
           </div>
-          <div style="width:90%; height:3rem;" id="link-send" class="shareBtn">Send</div>
+          <div style="width:90%; height:3rem;" id="link-send" onclick="email({{itemIdTotal}})" class="shareBtn">Send</div>
           <div class="" style="margin:0 1rem;">
 
           </div>
@@ -107,8 +107,7 @@
       <div class="page-box page-box-padding share">
         <input id="email" style="border: 1px solid gray; width:95%; height:3rem; font-size:1.5rem; padding-top:0;" type="text" name="" value="" placeholder="">
 				<input style="display:none" id="link" name="link" value="{{categoryTitle}}/{{itemId}}/showOneItem">
-
-        <div id="link-send" class="shareBtn">Send</div>
+        <div id="link-send" onClick="email({{itemIdTotal}})" class="shareBtn">Send</div>
         <div id="link-copy" class="shareBtn">Copy</div>
       </div>
 			<div class="" style="margin:0 1rem; margin-top:1rem;">

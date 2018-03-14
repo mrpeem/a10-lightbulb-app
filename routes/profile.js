@@ -250,14 +250,14 @@ function addMediaHTML()
   {
     var mediaHTML = getMediaHTML(userData.UPLOADLIST[i]);
     userData.UPLOADLIST[i]['mediaHTML'] = mediaHTML
-  }
+  }*/
 
-  for (var i = 0; i < user.SHARED.length; i++)
+  for (var i = 0; i < userData.sharedList.length; i++)
   {
-    var mediaHTML = getMediaHTML(userData.SHARED[i]);
-    userData.SHARED[i]['mediaHTML'] = mediaHTML
+    var mediaHTML = getMediaHTML(userData.sharedList[i]);
+    userData.sharedList[i]['mediaHTML'] = mediaHTML
   }
-  */
+  
 }
 
 function getMediaHTML(item)

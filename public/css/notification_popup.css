@@ -5,7 +5,8 @@
 .login-popup,
 .login-fail-popup,
 .register-fail-popup,
-.profile-edited-popup
+.profile-edited-popup,
+.save-popup
 {
   display: none;
   border-radius: 1rem;

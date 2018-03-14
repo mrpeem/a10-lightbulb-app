@@ -224,9 +224,10 @@ io.sockets.on('connection', function(socket){
 
   });
   
-  socket.on('email', function(email, link)
+  socket.on('email', function(email, link, itemID)
   {
-    share.email(email, link);
+    share.email(email, link, itemID);
+    updateUserData( share.getUserData() );
   });
 
   socket.on('changeInfo', function(email, actualName, userName, description)
