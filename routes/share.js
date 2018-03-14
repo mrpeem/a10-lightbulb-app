@@ -376,27 +376,35 @@ exports.email = function(email, link, itemID)
           if (error) {
               return console.log(error);
           }
-          console.log('Message sent: %s', info.messageId);
-          // Preview only available when sending through an Ethereal account
-          console.log('Preview URL (only with generated email): %s', nodemailer.getTestMessageUrl(info));
-
-          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-          // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+          this.checkShare(itemID, function(callback)
+          {
+            if (callback == -1)
+            {
+              console.log("add to sharedList");
+              userData.sharedList.push(data[itemID]);
+            }
+            console.log('Message sent: %s', info.messageId);
+            // Preview only available when sending through an Ethereal account
+          });
       });
   });
 
-  //adding to "sharedList"
-  for (var i = 0; i < userData.sharedList.length; i++)
-  {
-    if (itemID == userData.sharedList[i].id) //add if item not in sharedList
-    {
-      console.log("add to sharedList");
-      userData.sharedList.push(data[itemID]);
-    }
-  }
-
 }
 
+
+//return index of item if bookmarked; -1 otherwise
+exports.checkShare = function(itemID, callback)
+{
+  console.log("checkShare; itemID = "+itemID);
+  for (var i = 0; i < userData.sharedList.length; i++)
+  {
+    if (itemID == userData.sharedList[i].id)
+    {
+      callback(i);
+    }
+  }
+  callback(-1);
+}
 
 exports.getUserData = function()
 {

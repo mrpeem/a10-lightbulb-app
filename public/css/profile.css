@@ -350,6 +350,7 @@ audio#audio
 #profile-edit{
   border: 1px solid gray;
   padding: 0.5rem;
+  padding-right:0.5rem;
   position: absolute;
   top: -2.5rem;
   border-radius: 7px;
@@ -360,7 +361,8 @@ audio#audio
   border: 1px solid gray;
   padding: 0.5rem;
   position: absolute;
-  right: 2rem;
+  left:-0.5rem;
+  right: 2.2rem;
   top: -2.5rem;
   border-radius: 7px;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
