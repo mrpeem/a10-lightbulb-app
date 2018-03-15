@@ -436,6 +436,13 @@ a {
 
 }
 
+.nav-divider:active, 
+.search:active 
+{ 
+  opacity: 0.6; 
+}
+
+
 
 
 .nav-container {

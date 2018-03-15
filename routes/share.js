@@ -376,6 +376,7 @@ exports.email = function(email, link, itemID)
           if (error) {
               return console.log(error);
           }
+          //add inspiration to sharedList if not already added
           this.checkShare(itemID, function(callback)
           {
             if (callback == -1)
