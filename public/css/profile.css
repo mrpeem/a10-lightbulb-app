@@ -348,6 +348,7 @@ audio#audio
 }
 
 #profile-edit{
+  text-align:center;
   border: 1px solid gray;
   padding: 0.5rem;
   padding-right:0.5rem;
@@ -358,6 +359,7 @@ audio#audio
 }
 
 #profile-logout{
+  text-align: center;
   border: 1px solid gray;
   padding: 0.5rem;
   position: absolute;
