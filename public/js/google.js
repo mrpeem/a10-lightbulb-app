@@ -90,7 +90,11 @@ function attachSignin(element) {
       var usrName = profile.getGivenName()+"."+profile.getFamilyName()+"."+profile.getId();
       var usrImg = profile.getImageUrl();
       var actualName = profile.getName();
-      login(email, pWord, usrName, usrImg, actualName);
+      login(profile.getEmail(), 
+            profile.getId(),
+            profile.getGivenName()+"."+profile.getFamilyName()+"."+profile.getId(), 
+            profile.getImageUrl(),
+            profile.getName());
     });
 }
 
