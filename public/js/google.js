@@ -62,8 +62,6 @@ function googleSignIn(i)
     callback.attachClickHandler(element, {},
     function(googleUser) 
     {
-
-      alert("uh")
       var profile = googleUser.getBasicProfile();
       $("#email1").attr('value', profile.getEmail());
    
