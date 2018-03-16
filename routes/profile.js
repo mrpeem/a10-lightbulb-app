@@ -44,7 +44,7 @@ exports.edit = function(req, res) {
 //return true if successful login; false otherwise
 exports.login = function(email, password, userName, img, actualName)
 {
-  console.log("LOGIN; email = "+email);
+  console.log("in ROUTES/PROFILE.LOGIN; email = "+email);
   //check if existing user (matching email and password in database)
   var i;
   if ( (i = this.existingUser(email, password, true)) != -1)

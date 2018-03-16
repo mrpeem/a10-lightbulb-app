@@ -137,9 +137,15 @@ io.sockets.on('connection', function(socket){
     socket.leave(socket.room);
   });
 
+  socket.on('check')
+  {
+    alert("chck");
+  }
   //check login in (both manual input and social media login)
   socket.on('login', function (email, password, userName, img, actualName)
   {
+    console.log("LOG IN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log("email = "+email) ;
     var validLogin = profile.login(email, password, userName, img, actualName);
     console.log('logged in successfully: '+validLogin);
 
