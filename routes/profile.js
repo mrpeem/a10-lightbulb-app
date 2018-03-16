@@ -18,12 +18,13 @@ function addMediaHTML(){};
 
 exports.view = function(req, res) {
   console.log("exports.view in routes/profile.js");
-  console.log("userData");
-  console.log(userData);
-
 
   var loginStatus = userData.loginStatus;
   console.log("User is loggeed in: " + loginStatus);
+  if (loginStatus)
+  {
+    console.log(userData);
+  }
 
   if (!loginStatus) //not logged in; show pop up 
   { 
