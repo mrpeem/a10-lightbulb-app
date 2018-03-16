@@ -25,8 +25,6 @@ function checkLoginStatus(signedIn)
 function login(email, password, userName, userImg, actualName)
 {
   socket.emit('login', email, password, userName, userImg, actualName);
-
-
 }
 
 function logout()

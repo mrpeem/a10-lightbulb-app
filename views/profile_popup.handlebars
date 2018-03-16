@@ -60,15 +60,17 @@
                                 </div>
                             </div>
 
-                            <!--<div class="g-signin2" data-onsuccess="onSignIn">btn</div><br><br>
 
-
-                             Login with Google 
                             <div class="row" id="customBtn1">
                                 <div class="col-sm-12">
-                                    <input id="glogin-btn" type="button" class="btn btn-primary btn-sm" value="Login with Google">
+                                    <input id="glogin-btn" type="button" class="btn btn-primary btn-sm" onclick="googleSignIn(0);" value="Login with Google">
                                 </div>
-                            </div> -->
+
+                                <!-- dummy button to click the button 2nd time; hidden -->
+                                <div class="col-sm-12" style="display:none">
+                                    <input id="glogin2-btn" type="button" class="btn btn-primary btn-sm" onclick="googleSignIn(1);" value="Login with Google">
+                                </div>
+                            </div> 
 
 
 
