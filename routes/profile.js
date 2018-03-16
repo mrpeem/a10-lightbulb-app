@@ -67,23 +67,6 @@ exports.login = function(email, password, userName, img, actualName)
   return false; //not existing user and manual login = invalid login info  
 }
 
-exports.facebook_google_login = function(email, password, userName, img, actualName)
-{
-  console.log('facebook_google_login in profile.js');
-
-  var i;
-  if ( (i = this.existingUser(email, password, true)) != -1)
-  {
-    populateUserData(i);
-    return true;
-  }
-
-  //not existing user; if Facebook or Google login, create user based on extracted info
-  this.register(email, password, userName, img, actualName);
-  console.log(userData);
-
-  return true;
-}
 
 exports.register = function(email, password, userName, img, actualName)
 {

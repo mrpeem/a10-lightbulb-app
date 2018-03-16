@@ -150,16 +150,11 @@ io.sockets.on('connection', function(socket){
     else
     {
       socket.emit('successfulLogin');
+      console.log("user data = ");
+      console.log(profile.getUserData());
 
       updateUserData( profile.getUserData() );
     }
-  });
-
-
-  socket.on('facebook_google_login', function(email, password, userName, img, actualName)
-  {
-    profile.facebook_google_login();
-    updateUserData( profile.getUserData() );
   });
 
   //registering
