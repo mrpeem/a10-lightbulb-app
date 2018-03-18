@@ -358,7 +358,7 @@ exports.email = function(email, link, itemID)
         }
       });
 
-      var host = "https://cogs120-lightbulb-app.herokuapp.com/"
+      var host = "https://lightbulb-cogs120.herokuapp.com/"
 
       var senderName = (userData.loginStatus)? userData.actualName : "Someone";
 
