@@ -1,8 +1,8 @@
 {
-  "loginStatus": false,
+  "loginStatus": true,
   "userIdNumber": 0,
   "userName": null,
-  "actualName": null,
+  "actualName": "Default User",
   "email" : null,
   "profileImgURL": "/images/icons/default_profile.jpg",
   "currentPageViewed": null,
