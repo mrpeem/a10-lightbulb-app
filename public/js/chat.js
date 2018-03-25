@@ -1,5 +1,5 @@
 //for testing
-var socket = io.connect();
+var socket = io.connect('https://a9-team2.herokuapp.com/');
 //var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');//for deploying
 
 

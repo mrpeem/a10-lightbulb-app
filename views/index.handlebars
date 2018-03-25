@@ -4,8 +4,7 @@
 <body>
 
 {{>searchbar}}
-<!--<script src="/js/google2.js" type="text/javascript"></script>
-<button onclick="test()">BTTN</button>-->
+
 <div class="page-container">
 
 
@@ -31,7 +30,7 @@
 			</div>
 			<div class="categories-button">
 				<a href="/app/random">
-					<div class="categories" id="random">
+					<div class="categories">
 						Random
 					</div>
 				</a>
@@ -61,10 +60,32 @@
 
 
 		<!-- SPACE FOR POPUP -->
-		{{>notification_popup}}
+		<div id="profile_popup" class="modal"> </div>
 
 		<!-- BOTTOM NAVIGATION BAR -->
 		{{>navigation}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- __________________________________________________________________________-->
+{{>notification_popup}}
+
+<!--___________________________________________________________________________-->
 
 
 

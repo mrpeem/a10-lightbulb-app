@@ -1,5 +1,5 @@
 var data = require('../data.json');
-//var ip = require('./ip.js');
+var ip = require('./ip.js');
 var userData = require('../userData.json');
 //var userData = ip.getUserData();
 
@@ -32,8 +32,11 @@ exports.bookmark = function(itemID)
 //return index of item if bookmarked; -1 otherwise
 exports.checkBookmark = function(itemID)
 {
+	console.log("checkBookmark")
+	ip.getUserData(function(callback){
+    console.log(callback)
 	console.log("checkBookmark; itemID = "+itemID);
-	for (var i = 0; i < userData.bookmarkedList.length; i++)
+	for (var i = 0; i < callback.bookmarkedList.length; i++)
 	{
 		if (itemID == userData.bookmarkedList[i].id)
 		{
@@ -41,6 +44,7 @@ exports.checkBookmark = function(itemID)
 		}
 	}
 	return -1;
+	});
 }
 
 exports.getUserData = function()

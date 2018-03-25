@@ -57,7 +57,6 @@ app.get('/browse', browse.view);
 app.get('/profile', profile.view);
 app.get('/profile_register', profile.register);
 app.get('/profile_logout', profile.logout);
-app.get('/profile_edit', profile.edit);
 
 //app.get('/profile_goodle', profile.google);
 app.get('/sharedChat/:userIdNumber/:categoryTitle/:itemId/show', userInfo.shareView);
@@ -137,12 +136,9 @@ io.sockets.on('connection', function(socket){
     socket.leave(socket.room);
   });
 
-
   //check login in (both manual input and social media login)
   socket.on('login', function (email, password, userName, img, actualName)
   {
-    console.log("LOG IN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    console.log("email = "+email) ;
     var validLogin = profile.login(email, password, userName, img, actualName);
     console.log('logged in successfully: '+validLogin);
 
@@ -153,11 +149,16 @@ io.sockets.on('connection', function(socket){
     else
     {
       socket.emit('successfulLogin');
-      console.log("user data = ");
-      console.log(profile.getUserData());
 
       updateUserData( profile.getUserData() );
     }
+  });
+
+
+  socket.on('facebook_google_login', function(email, password, userName, img, actualName)
+  {
+    profile.facebook_google_login();
+    updateUserData( profile.getUserData() );
   });
 
   //registering
@@ -168,14 +169,15 @@ io.sockets.on('connection', function(socket){
 
     if (alreadyExist != -1)
     {
-      socket.emit('failedSignUp');
+      socket.emit('alreadyExist');
     }
     else
     {
-      profile.register(email, password, userName, img, actualName);
-      socket.emit('successfulLogin');
-
-      updateUserData( profile.getUserData() );
+      profile.register(email, password, userName, img, actualName, function(callback)
+      {
+        socket.emit('successfulLogin');
+        updateUserData(callback);
+      });
     }
   });
 
@@ -222,34 +224,17 @@ io.sockets.on('connection', function(socket){
 
   });
   
-  socket.on('email', function(email, link, itemID)
+  socket.on('email', function(email, link)
   {
-    share.email(email, link, itemID);
-    updateUserData( share.getUserData() );
+    share.email(email, link);
   });
 
-  socket.on('changeInfo', function(email, actualName, userName, description)
+  socket.on('changeDescription', function(description)
   {
-    var result = profile.changeInfo(email, actualName, userName, description);
-    var existingEmail = result.substr(0, result.indexOf(' '));
-    var existingUserName = result.substr(result.indexOf(' ')+1);
-
-    socket.emit('validInfo', existingEmail, existingUserName);
-
+    console.log("changeDescription: "+description);
+    profile.changeDescription(description);
     updateUserData( profile.getUserData() );
   });
-
-  socket.on('changePassword', function(originalPassword, newPassword1, newPassword2)
-  {
-    var result = profile.changePassword(originalPassword, newPassword1, newPassword2);
-    var correctPassword = result.substr(0, result.indexOf(' '));
-    var validPassword = result.substr(result.indexOf(' ')+1);
-
-    socket.emit('validPassword', correctPassword, validPassword);
-
-    updateUserData( profile.getUserData() );
-  });
-
 
   //sends loginStatus directly froma app.js to avoid error from asynchronicity
 
@@ -276,6 +261,8 @@ fs.readdirSync('./routes/').forEach(file =>
 //fixes "bug" (from asynchronicity) where loginStatus sometimes isn't updated
 function updateUserData(userData)
 {
+  //console.log("in update of app.js")
+  console.log(userData);
   for (var i = 0; i < routeFiles.length; i++)
   {
     routeFiles[i].updateUserData(userData);

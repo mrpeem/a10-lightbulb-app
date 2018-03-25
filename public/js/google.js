@@ -1,4 +1,3 @@
-
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -14,92 +13,34 @@ function signOut() {
     });
   }
 
+
 var googleUser = {};
-var startApp = function() 
-{ 
-  gapi.load('auth2', function()
-  {
-    // Retrieve the singleton for the GoogleAuth library and set up the client.
-    auth2 = gapi.auth2.init(
-    {
-      client_id: '504698465144-baibi5gb2iusfmsdsaqka7rlkj4mo8u4.apps.googleusercontent.com'
-    });
-
-    attachSignin(document.getElementById('customBtn1'));
+var startApp = function() {
+gapi.load('auth2', function(){
+  // Retrieve the singleton for the GoogleAuth library and set up the client.
+  auth2 = gapi.auth2.init({
+    client_id: '504698465144-baibi5gb2iusfmsdsaqka7rlkj4mo8u4.apps.googleusercontent.com',
+    cookiepolicy: 'single_host_origin',
+    // Request scopes in addition to 'profile' and 'email'
+    //scope: 'additional_scope'
   });
-
-  alert("start");
-  start(callback=>
-  {
-    console.log(callback);
-  });
-
+  attachSignin(document.getElementById('customBtn1'));
+});
 };
 
-function start(callback)
-{
-  gapi.load('auth2', function()
-  {
-    // Retrieve the singleton for the GoogleAuth library and set up the client.
-    callback(gapi.auth2.init(
-    {
-      client_id: '504698465144-baibi5gb2iusfmsdsaqka7rlkj4mo8u4.apps.googleusercontent.com'
-    }));
-  });
-}
-
-function googleSignIn(i)
-{
-  start(callback=>
-  {
-    var element = document.getElementById('customBtn1');
-    
-    if (i == 0) //only execute when clicked with real button 
-    {
-      $('#glogin2-btn').click(); //click from dummy button; only do this once
-    }
-
-    callback.attachClickHandler(element, {},
-    function(googleUser) 
-    {
-      var profile = googleUser.getBasicProfile();
-      $("#email1").attr('value', profile.getEmail());
-   
-      var email = profile.getEmail();
-      var pWord = profile.getId();
-      var usrName = profile.getGivenName()+"."+profile.getFamilyName()+"."+profile.getId();
-      var usrImg = profile.getImageUrl();
-      var actualName = profile.getName();
-      login(profile.getEmail(), 
-            profile.getId(),
-            profile.getGivenName()+"."+profile.getFamilyName()+"."+profile.getId(), 
-            profile.getImageUrl(),
-            profile.getName());
-    });
-  });
-
-
-}
-
 function attachSignin(element) {
-  console.log(element.id);
-  auth2.attachClickHandler(element, {},
+console.log(element.id);
+auth2.attachClickHandler(element, {},
     function(googleUser) {
-      alert("a")
     	var profile = googleUser.getBasicProfile();
 		$("#email1").attr('value', profile.getEmail());
-   
-      var email = profile.getEmail();
-      var pWord = profile.getId();
-      var usrName = profile.getGivenName()+"."+profile.getFamilyName()+"."+profile.getId();
-      var usrImg = profile.getImageUrl();
-      var actualName = profile.getName();
-      
-      login(profile.getEmail(), 
-            profile.getId(),
-            profile.getGivenName()+"."+profile.getFamilyName()+"."+profile.getId(), 
-            profile.getImageUrl(),
-            profile.getName());
+	    $("#exampleInputPassword1").attr('value', profile.getId());
+	    $("#fb_gg_name").attr('value', profile.getName());
+	    $("#fb_gg_image").attr('value', profile.getImageUrl());
+	    $("#fb_gg_username").attr('value', profile.getGivenName()+"."+profile.getFamilyName()+"."+profile.getId());
+	    
+	    //automatically click login (so it seems like it's 1 step, when it's really 2)
+	    $("#login-btn").click();     
     });
 }
 

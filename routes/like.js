@@ -33,7 +33,7 @@ exports.like = function(itemID)
 exports.checkLike = function(itemID)
 {
 	console.log("checkLike; itemID = "+itemID);
-	for (var i = 0; i < userData.likedList.length; i++)
+	for (var i = 0; i < userData[0].likedList.length; i++)
 	{
 		if (itemID == userData.likedList[i].id)
 		{

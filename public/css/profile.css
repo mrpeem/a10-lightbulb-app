@@ -136,16 +136,6 @@
   border-bottom: 0;
 }
 
-#password-tab {
-  grid-area: Password;
-  border-bottom: 0;
-}
-
-#info-tab {
-  grid-area: Info;
-  border-bottom: 0;
-}
-
 #tab-content{
   border: 1px solid #e5e5e5;
   border-top: 0;
@@ -156,6 +146,10 @@
 
 }
 
+#email1::placeholder{
+  color: black;
+  font-size: 1.3rem;
+}
 
 .form-horizontal{
   width: 100%;
@@ -172,23 +166,32 @@
 
 }
 
-#login-btn, 
-#flogin-btn, 
-#glogin-btn, 
-#changePassword-btn,
-#changeInfo-btn,
-#signUpBtn{
+#login-btn{
   width: 100%;
-  background-color: #5CA7BA;
 
 }
 
+#flogin-btn{
+  width: 100%;
+}
 
+#glogin-btn{
+  width: 100%;
+}
 
 #profile_popup{
   border-radius: 1rem;
 }
+#exampleInputPassword1::placeholder{
+  font-size: 1.3rem;
+  color: black;
 
+}
+
+#exampleInputPassword1{
+  margin: auto;
+  width: 90%;
+}
 
 .or{
   position: relative;
@@ -205,46 +208,57 @@
   margin-bottom: 0;
 }
 
-#email,
-#email_register,
-#name,
-#username,
-#username_register,
-#password,
-#description,
-#originalPassword,
-#newPassword1,
-#newPassword2,
-#exampleInputPassword1,
 #email1{
+  margin: auto;
+  width: 90%;
+  height: 2rem;
+}
+#email{
+  width: 90%;
+  margin: auto;
+    height: 2rem;
+    padding-top: 1rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+
+#email::placeholder{
+  font-size: 1.3rem;
+  color: black;
+}
+#name{
+  width: 90%;
+  margin: auto;
+  height: 2rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
+}
+#name::placeholder{
+  font-size: 1.3rem;
+  color: black;
+}
+#username{
   width: 90%;
   margin: auto;
     height: 2rem;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
 }
-#email_register::placeholder,
-#name::placeholder,
-#username_register::placeholder
-#password::placeholder,
-#description::placeholder,
-#originalPassword::placeholder,
-#newPassword1::placeholder,
-#newPassword2::placeholder,
-#exampleInputPassword1::placeholder,
-#email1{
+#username::placeholder{
   font-size: 1.3rem;
   color: black;
 }
+#password{
+  width: 90%;
+  margin: auto;
+    height: 2rem;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 
-#email-taken,
-#username-taken,
-#invalid-password,
-#incorrect-password
-{
-  display:inline;
-  color:red;
 }
-
+#password::placeholder{
+  font-size: 1.3rem;
+  color: black;
+}
 
 #submitBtn{
   width: 90%;
@@ -319,62 +333,61 @@ audio#audio
 .nav{
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas:
-    "bookmark shared";
+    "bookmark uploaded shared";
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: medium;
-  display:inline-block;
 
 }
 
-
-
-
-#profile-bookmark,
-#profile-share
-{
-  color:black;
-  width: 100%;
+#profile-bookmark{
+  grid-area:bookmark;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 
+#profile-upload{
+  grid-area:uploaded ;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#profile-share{
+  grid-area:shared ;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-.edit-profile,
-.logout{
+.edit-profile{
   position: relative;
-  width:100px;
 }
+
 
 #profile-edit{
-  text-align:center;
   border: 1px solid gray;
   padding: 0.5rem;
-  padding-right:0.5rem;
   position: absolute;
+  left: 1rem;
   top: -2.5rem;
   border-radius: 7px;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
-
 #profile-logout{
-  text-align: center;
   border: 1px solid gray;
   padding: 0.5rem;
   position: absolute;
-  left:-0.5rem;
-  right: 2.2rem;
+  right: 1rem;
   top: -2.5rem;
   border-radius: 7px;
   font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-}
-
-#profile-logout:active,
-#profile-edit:active 
-{ 
-  background-color:#B2CDE3; 
-  opacity:0.3; 
 }
 
 .tabs_container{

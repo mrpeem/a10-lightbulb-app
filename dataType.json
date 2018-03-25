@@ -1,13 +1,13 @@
 [
   {
     "id": 0,
-    "dataType" : "Images",
+    "dataType" : "Image",
     "title": "image",
     "URL":""
   },
   {
     "id": 1,
-    "dataType" : "Videos",
+    "dataType" : "Video",
     "title": "video",
     "URL":""
   },

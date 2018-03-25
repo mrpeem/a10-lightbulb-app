@@ -202,6 +202,11 @@ a {
 
 }
 
+.nav-divider{
+  background-color: #B2CDE3;
+  border-right: 1px solid #efefef;
+
+}
 
 .nav-cover{
   margin-bottom: 5rem;
@@ -436,13 +441,6 @@ a {
 
 }
 
-.nav-divider:active, 
-.search:active 
-{ 
-  opacity: 0.6; 
-}
-
-
 
 
 .nav-container {
@@ -507,15 +505,6 @@ a {
   grid-template-areas:
     "Image Video"
     "Music Literature";
-}
-
-#image:active, 
-#video:active, 
-#music:active, 
-#literature:active,
-#random:active
-{
-  opacity:0.7;
 }
 
 #image{

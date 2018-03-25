@@ -17,7 +17,7 @@
             </div>
           </a>
         {{else}}
-          <a id="back" onclick="window.history.back();"> &lt; Back  </a>
+          <a id="back" href="/"> &lt; Back  </a>
         {{/if}}
       </div>
 
@@ -112,7 +112,7 @@
 
     </div>
     <!-- SPACE FOR POPUP -->
-    {{>notification_popup}}
+    <div id="profile_popup" class="modal"> </div>
 
     <div class="nav-share-2 chatroom-btns-layout">
       {{#if isScreenShared}}

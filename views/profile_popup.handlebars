@@ -1,12 +1,3 @@
-<style type="text/css">
-    .modal-content {
-        position: relative;
-        padding: 20px;
-        height: 200px;
-        overflow-y: scroll;
-        }
-</style>
-
 <div class="modal-content">
     <!-- Header -->
     <div class="modal-header" style="position:relative;">
@@ -27,22 +18,47 @@
                 <div class="tab-content" id="tab-content">
 
                     <!-- Login form -->
-                    <div class="tab-pane" id="Login">
-                        <form role="form">
+                    <div class="tab-pane " id="Login">
+                        <form role="form" class="form-horizontal">
 
-                          <br>
-                          <!-- Email -->
-                          <div class="form-group">
-                            <input type="email" class="form-control signup-input" id="email1" placeholder="Email" >
-                          </div>
+                            <!-- Email -->
+                            <div class="form-group">
+                              <div class="row">
+                                <div id="email-container" class="col-sm-12 ">
+                                    <input style="height: 2rem; margin-bottom:0; margin-top:1rem;" type="email" class="form-control" id="email1" placeholder="Email" name="email1" />
+                                </div>
+                              </div>
+                            </div>
 
                             <!-- Password -->
-                          <div class="form-group">
-                            <input type="password" class="form-control signup-input" id="exampleInputPassword1" placeholder="Password">
+                            <div class="form-group">
+                              <div class="row">
+                                <div id="password-container" class="col-sm-12">
+                                    <input style="height: 2rem; margin-bottom:0;" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="exampleInputPassword1" />
+                                </div>
+                              </div>
+                            </div>
 
-                            <!--for showing error message; empty for now -->
-                            <center id="incorrect-login" style="color:red"> </center>
-                          </div>
+                            <!-- Name (hidden) -->
+                            <div class="form-group" style="display:none">
+                                    <input type="text" class="form-control" id="fb_gg_name" name="fb_gg_name"/>
+                            </div>
+
+                            <!-- Image (hidden) -->
+                            <div class="form-group" style="display:none">
+                                    <input type="text" class="form-control" id="fb_gg_image" name="fb_gg_image"/>
+                            </div>
+
+                            <!-- Username (hidden) -->
+                            <div class="form-group" style="display:none">
+                                    <input type="text" class="form-control" id="fb_gg_username" name="fb_gg_username"/>
+                            </div>
+
+
+                            <!-- Forgot password -->
+                            <div class="form-group">
+                              <a id="forgotp" href="">Forgot password?</a>
+                            </div>
 
                             <!-- Submit button -->
                             <div class="row">
@@ -59,27 +75,15 @@
                                 <span id="or-span">OR</span>
                             </div>
 
-                            <!-- Login with Facebook 
+                            <!-- Login with Facebook -->
                             <div class="row">
                                 <div class="col-sm-12">
 
-                                     Facebook submit button 
+                                    <!-- Facebook submit button -->
                                     <input id="flogin-btn" type="button" class="btn btn-primary btn-sm" value="Login with Facebook" onclick="checkLoginState();"/>
 
                                 </div>
-                            </div>-->
-
-
-                            <div class="row" id="customBtn1">
-                                <div class="col-sm-12">
-                                    <input id="glogin-btn" type="button" class="btn btn-primary btn-sm" onclick="googleSignIn(0);" value="Login with Google">
-                                </div>
-
-                                <!-- dummy button to click the button 2nd time; hidden -->
-                                <div class="col-sm-12" style="display:none">
-                                    <input id="glogin2-btn" type="button" class="btn btn-primary btn-sm" onclick="googleSignIn(1);" value="Login with Google">
-                                </div>
-                            </div> 
+                            </div>
 
 
 
@@ -90,13 +94,9 @@
                     <div class="tab-pane active" id="Registration">
                         <form id="addFriendForm" role="form">
 
-                          <br>
                           <!-- Email -->
                           <div class="form-group">
-                            <input type="email" class="form-control signup-input" id="email_register" placeholder="Email" name="email">
-
-                            <!--for showing error message; empty for now -->
-                            <center id="email-exists" style="color:red"> </center>
+                            <input type="email" class="form-control signup-input" id="email" placeholder="Email" name="email">
                           </div>
 
                           <!-- Name -->
@@ -106,7 +106,7 @@
 
                             <!-- Username -->
                             <div class="form-group">
-                              <input type="text" class="form-control signup-input" id="username_register" placeholder="Username" name="username">
+                              <input type="text" class="form-control signup-input" id="username" placeholder="Username" name="username">
                             </div>
 
                             <!-- Password -->
@@ -115,10 +115,8 @@
                             </div>
 
                             <!-- Sign-up button -->
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input type="submit" id="signUpBtn" class="btn btn-default signup-input" value="Sign Up" ></input>
-                                </div>
+                            <div id="signup-btn" class="form-group">
+                              <input type="submit" id="signUpBtn" class="btn btn-default signup-input" value="Sign Up" ></input>
                             </div>
 
                         </form>
@@ -134,13 +132,16 @@
     </div>
 </div>
 
+{{>notification_popup}}
 
 <!-- Check if user enter correct login information -->
 <script src="/socket.io/socket.io.js"></script>
 <script>
+var socket = io.connect('http://localhost:3000');
+//var socket = io.connect('https://a8-cogs120team2.herokuapp.com/');
+//var socket = io.connect('https://a9-team2.herokuapp.com/');
 
-
-var socket = io.connect();
+    //---------
 
     //for login
     $('#login-btn').click(function(e)
@@ -149,27 +150,26 @@ var socket = io.connect();
 
         var email = $('#email1').val();
         var pWord = $('#exampleInputPassword1').val();
-        //socket.emit('login', email, pWord, usrName, usrImg, actualName);
-        login(email, pWord, null, null, null);
+        var usrName = $('fb_gg_username').val();
+        var usrImg = $('fb_gg_image').val();
+        var actualName = $('fb_gg_name').val();
+        socket.emit('login', email, pWord, usrName, usrImg, actualName);
     });
-
-
 
     socket.on('failedLogin', function()
     {
-        $('#incorrect-login').text("*incorrect email or password*");
+        $('.login-fail-popup').fadeIn(500);
+        $('.login-fail-popup').fadeOut(2500);
     });
 
     //show login success message and go to homepage
     socket.on('successfulLogin', function()
     {
-        window.location.hash = 'loggedIn';
-        window.location.reload();
-        // $('.login-popup').fadeIn(500, function()
-        // {
-        //     //undo effect of preventDefault and reload page
-        //     location.reload();
-        // });
+        $('.login-popup').fadeIn(500, function()
+        {
+            //undo effect of preventDefault and reload page
+            location.reload();
+        });
     })
 
     //---------
@@ -179,20 +179,18 @@ var socket = io.connect();
     {
         e.preventDefault();
 
-        var email = $('#email_register').val();
+        var email = $('#email').val();
         var actualName = $('#name').val();
-        var usrName = $('#username_register').val();
+        var usrName = $('#username').val();
         var pWord = $('#password').val();
         var usrImg = '/images/icons/default_profile.jpg';
         socket.emit('register', email, pWord, usrName, usrImg, actualName);
     });
 
-    socket.on('failedSignUp', function()
+    socket.on('alreadyExist', function()
     {
-        $('#email-exists').text("*email already exists*");
+        $('.register-fail-popup').fadeIn(500);
+        $('.register-fail-popup').fadeOut(2000);
     })
-
-
-
 
 </script>

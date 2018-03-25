@@ -66,31 +66,29 @@ exports.view = function(req, res) {
     userIdNumber = 0;
   }
 
-  try
-  {
-    switch (categoryListUser[currentItemIndex].type) {
-      case 'image':
-        console.log('image Type');
-        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
-        break;
-      case 'video':
-        console.log('video Type');
-        mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
-        break;
-      case 'literature':
-        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+
+
+  switch (categoryListUser[currentItemIndex].type) {
+    case 'image':
+      console.log('image Type');
+      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+      break;
+    case 'video':
+      console.log('video Type');
+      mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
+      break;
+    case 'literature':
+      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+      break;
+
+      case 'music':
+        mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
         break;
 
-        case 'music':
-          mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
-          break;
-
-      default:
-        console.log('check mediaType!');
-        break;
-    }
+    default:
+      console.log('check mediaType!');
+      break;
   }
-  catch (err) { console.log("categoryListUser is null"); }
 
 
 
@@ -128,31 +126,29 @@ exports.viewAlt = function(req, res) {
     userIdNumber = 0;
   }
 
-  try
-  {
-    switch (categoryListUser[currentItemIndex].type) {
-      case 'image':
-        console.log('image Type');
-        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
-        break;
-      case 'video':
-        console.log('video Type');
-        mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
-        break;
-      case 'literature':
-        mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+
+
+  switch (categoryListUser[currentItemIndex].type) {
+    case 'image':
+      console.log('image Type');
+      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+      break;
+    case 'video':
+      console.log('video Type');
+      mediaHTML = '<video style="width:100%;" controls><source src=' + categoryListUser[currentItemIndex].URL + ' type=video/mp4></video>';
+      break;
+    case 'literature':
+      mediaHTML = '<div class="preview-content"><img id="media" src="' + categoryListUser[currentItemIndex].URL + '" alt=""></div>';
+      break;
+
+      case 'music':
+        mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
         break;
 
-        case 'music':
-          mediaHTML = '<audio style="width:70%;" controls><source src="'+ categoryListUser[currentItemIndex].URL  + '" type="audio/ogg">Your browser does not support the audio element.</audio>';
-          break;
-
-      default:
-        console.log('check mediaType!');
-        break;
-    }
+    default:
+      console.log('check mediaType!');
+      break;
   }
-  catch (err) { console.log("categoryList is null"); }
 
 
 
@@ -338,8 +334,7 @@ exports.viewOne = function(req, res) {
   });
 };
 
-//for sharing inspiration via email
-exports.email = function(email, link, itemID)
+exports.email = function(email, link)
 {
   console.log("exports.email");
   console.log("Shared "+link+" with "+email);
@@ -348,6 +343,17 @@ exports.email = function(email, link, itemID)
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
   nodemailer.createTestAccount((err, account) => {
+      
+      // default SMTP transport (fake account)
+      /*let transporter = nodemailer.createTransport({
+          host: 'smtp.ethereal.email',
+          port: 587,
+          secure: false, // true for 465, false for other ports
+          auth: {
+              user: account.user, // generated ethereal user
+              pass: account.pass // generated ethereal password
+          }
+      });*/
 
       var transporter = nodemailer.createTransport(
       {
@@ -358,15 +364,14 @@ exports.email = function(email, link, itemID)
         }
       });
 
-      var host = "https://cogs120-lightbulb-app.herokuapp.com/"
-
-      var senderName = (userData.loginStatus)? userData.actualName : "Someone";
+      //var host = "http://localhost:3000/";
+      var host = "https://a9-team2.herokuapp.com/" //switch when deploying
 
       // setup email data with unicode symbols
       let mailOptions = {
-          from: '"Lightbulb! App 💡" <do_not_reply@lightbulb.com>', // sender address
+          from: '"Our Appname" <do_not_reply@appname.com>', // sender address
           to: email, // list of receivers
-          subject: senderName+' shared an Inspiration with you!', // Subject line
+          subject: 'Check this out! ✔', // Subject line
           text: host+link, // plain text body
           html: '<b><a href="'+host+link+'">View Inspiration!</a></b>' // html body
       };
@@ -376,40 +381,14 @@ exports.email = function(email, link, itemID)
           if (error) {
               return console.log(error);
           }
-          //add inspiration to sharedList if not already added
-          this.checkShare(itemID, function(callback)
-          {
-            if (callback == -1)
-            {
-              console.log("add to sharedList");
-              userData.sharedList.push(data[itemID]);
-            }
-            console.log('Message sent: %s', info.messageId);
-            // Preview only available when sending through an Ethereal account
-          });
+          console.log('Message sent: %s', info.messageId);
+          // Preview only available when sending through an Ethereal account
+          console.log('Preview URL (only with generated email): %s', nodemailer.getTestMessageUrl(info));
+
+          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+          // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
       });
   });
-
-}
-
-
-//return index of item if bookmarked; -1 otherwise
-exports.checkShare = function(itemID, callback)
-{
-  console.log("checkShare; itemID = "+itemID);
-  for (var i = 0; i < userData.sharedList.length; i++)
-  {
-    if (itemID == userData.sharedList[i].id)
-    {
-      callback(i);
-    }
-  }
-  callback(-1);
-}
-
-exports.getUserData = function()
-{
-  return userData;
 }
 
 exports.updateUserData = function(usrData)

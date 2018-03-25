@@ -1,4 +1,21 @@
-{{>header}}
+<!doctype html>
+<html lang="en">
+
+<head>
+
+
+
+
+
+	<title>InspireU</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+  	<link href="/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+  	<link href="/css/index.css" rel="stylesheet">
+	<link href="/css/profile.css" rel="stylesheet">
+	<link href="/css/play.css" rel="stylesheet" type="text/css">
+	<link href="/css/notification_popup.css" rel="stylesheet" type="text/css">
 
 
 	<!-- for search overlay -->
@@ -17,9 +34,9 @@
     <div class="pageTitle-container">
       <div class="page-back">
         {{#if isOneItem}}
-          <a href="/{{categoryTitle}}/{{itemId}}/showOneItem" id="back"> &lt; Back  </a>
+          <a href="/{{categoryTitle}}/{{itemId}}/showOneItem"> &lt; Back  </a>
         {{else}}
-          <a href="/{{categoryTitle}}/{{itemId}}/show" id="back"> &lt; Back  </a>
+          <a href="/{{categoryTitle}}/{{itemId}}/show"> &lt; Back  </a>
         {{/if}}
       </div>
 
@@ -59,7 +76,7 @@
 
 
           </div>
-          <div style="width:90%; height:3rem;" id="link-send" onclick="email({{itemIdTotal}})" class="shareBtn">Send</div>
+          <div style="width:90%; height:3rem;" id="link-send" class="shareBtn">Send</div>
           <div class="" style="margin:0 1rem;">
 
           </div>
@@ -107,7 +124,8 @@
       <div class="page-box page-box-padding share">
         <input id="email" style="border: 1px solid gray; width:95%; height:3rem; font-size:1.5rem; padding-top:0;" type="text" name="" value="" placeholder="">
 				<input style="display:none" id="link" name="link" value="{{categoryTitle}}/{{itemId}}/showOneItem">
-        <div id="link-send" onClick="email({{itemIdTotal}})" class="shareBtn">Send</div>
+
+        <div id="link-send" class="shareBtn">Send</div>
         <div id="link-copy" class="shareBtn">Copy</div>
       </div>
 			<div class="" style="margin:0 1rem; margin-top:1rem;">
@@ -155,9 +173,7 @@
   </div>
 
   <!-- SPACE FOR POPUP -->
-  {{>notification_popup}}
-
-
+  <div id="profile_popup" class="modal"> </div>
   {{#unless isOneItem}}
     <div class="nav-share-2 chatroom-btns-layout">
       {{#if isScreenShared}}
@@ -184,7 +200,6 @@
 
 
     </div>
-
 
     <!-- BOTTOM NAVIGATION BAR -->
     {{#unless isAtChatroom}}
@@ -224,7 +239,12 @@
 
 
   </div>
+  <div class="notification-hidden">
 
+    <div class="save-popup">
+      <img id="check-icon" src="/images/icons/check-500.png" alt=""> Added to Your Profile
+    </div>
+  </div>
 
   {{>script}} {{>chatScript}}
 

@@ -4,9 +4,7 @@
 .like-fail-popup,
 .login-popup,
 .login-fail-popup,
-.register-fail-popup,
-.profile-edited-popup,
-.save-popup
+.register-fail-popup
 {
   display: none;
   border-radius: 1rem;
@@ -17,8 +15,6 @@
   width: 15rem;
   text-align: center;
   margin-top: 20rem;
-  z-index: 1000;
-
 }
 
 .like-popup 

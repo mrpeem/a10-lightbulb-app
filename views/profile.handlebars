@@ -4,7 +4,6 @@
 
   {{>searchbar}}
   <div class="page-container">
-    
     <div class="heading-container">
       <div class= "profile_pic">
         <img src={{profileImgURL}} alt="profile picture" style="width:130px;height:130px;">
@@ -12,76 +11,70 @@
 
       <div class = "description">
         <div class="page-box page-box-padding">
-          {{description}}
-        </div>
+              {{description}}
+          </div>
       </div>
-
 
       <div class = "username">
         <p>{{actualName}}</p>
       </div>
 
-      <!-- Edit and Logout buttons -->
-      <div style="display:inline-flex;">
-        
-        <div class= "edit-profile">
-          <a id="profile-edit" href="/profile_edit" data-toggle="modal" data-target="#profile_popup">  Edit Profile 
-          </a>
-        </div>
+      <!-- hide buttons to fix bugs for now -->
 
-        <div class="logout">
-          <a id="profile-logout" href="/" id="logout_btn" onclick="logout()">
-            Logout
-          </a>
-        </div>
+      <div class= "edit-profile">
+        <a id="profile-edit" onclick="changeDescription('This is will be your new description')">Edit Profile</a>
+        <a id="profile-logout" href="/" id="logout_btn" onclick="logout()">LOG OUT</a>
+	<!--<a id="profile-logout" >LOG OUT</a>-->
 
       </div>
 
+
+
     </div>
 
-    <div class="tabs_container">
-      
-      <!-- Tab bar -->
-      <ul class="nav nav-tabs" style="display:inline-flex; text-align:center">
-        
-        <li id="profile-bookmark" class="active">
-          <a href="#Bookmarked" data-toggle="tab">Bookmarked</a>
-        </li>
 
-        <li id="profile-share">
-          <a href="#Shared" data-toggle="tab">Shared</a>
-        </li>
-      
+    <div class = "tabs_container">
+      <ul class="nav nav-tabs">
+        <li id="profile-bookmark" class="active"><a href="#Bookmarked" data-toggle="tab">Bookmarked</a></li>
+        <li id="profile-upload"><a href="#Uploaded" data-toggle="tab">Uploaded</a></li>
+        <li id="profile-share"><a href="#Shared" data-toggle="tab">Shared</a></li>
       </ul>
-
 
       <!-- Tab panes -->
       <div class="tab-content">
 
-        <!-- Bookmarked tab -->
+        <!-- Saved tab -->
         <div class="tab-pane active" id="Bookmarked">
-          {{#each bookmarkedList}}
+            {{#each bookmarkedList}}
               <a href="/{{category}}/{{id}}/showOneItem"> {{{mediaHTML}}} </a>
-          {{/each}}
+            {{/each}}
+
         </div>
 
+        <!-- Uploaded tab -->
+        <div class="tab-pane" id="Uploaded">
+            <h5> <center><br>UPLOADED CONTENT.. </center></h5>
+
+        </div>
 
         <!-- Shared tab -->
         <div class="tab-pane" id="Shared">
-            {{#each sharedList}}
-              <a href="/{{category}}/{{id}}/showOneItem"> {{{mediaHTML}}} </a>
-            {{/each}}
+            <h5> <center><br>SHARED CONTENT.. </center></h5>
+
         </div>
 
       </div>
-
     </div>
 
-    <!-- SPACE FOR POPUP -->
-    {{>notification_popup}}
+
+
+
 
     <!-- BOTTOM NAVIGATION BAR -->
 		{{>navigation}}
+
+
+
 
   </div>
 

@@ -823,22 +823,13 @@ a {
     font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
+ .search{
+   background-color: #B2CDE3;
 
+ }
 .new-options2{
     font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
-
-.search
-{
-  background-color: #B2CDE3;
-  border-right: 1px solid #efefef;
-}
-
-.search:active
-{
-  opacity:0.7;
-}
-
 #activities{
   background-color: #96D6E5;
   color: black;
@@ -894,23 +885,4 @@ a {
 #toys{
   background-color: #96D6E5;
   color: black;
-}
-
-#activities:active,
-#art:active,
-#audio:active,
-#beauty:active,
-#games:active,
-#garden:active,
-#food:active,
-#home:active,
-#kid:active,
-#movies:active,
-#music:active,
-#pets:active,
-#sports:active,
-#toys:active,
-#travel:active
-{
-  opacity:0.7;
 }
