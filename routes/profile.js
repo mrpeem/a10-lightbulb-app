@@ -1,4 +1,4 @@
-//var ip = require('./ip.js');
+var ip = require('./ip.js');
 var userData = require('../userData.json');
 //var userData = ip.getUserData();
 var data = require('../data.json');
@@ -16,25 +16,28 @@ function addMediaHTML(){};
 //------------------ main functions ------------------
 //----------------------------------------------------
 
-exports.view = function(req, res) {
+exports.view = function(req, res) 
+{
   console.log("exports.view in routes/profile.js");
 
-  var loginStatus = userData.loginStatus;
-  console.log("User is loggeed in: " + loginStatus);
-  if (loginStatus)
+  ip.getUserData(function(userData)
   {
-    console.log(userData);
-  }
 
-  if (!loginStatus) //not logged in; show pop up 
-  { 
-    res.render('profile_popup');
-  } 
-  else //logged in; show profile page
-  {
-    addMediaHTML();
-    res.render('profile', userData);  
-  }
+    var loginStatus = userData.loginStatus;
+    console.log("User is loggeed in: " + loginStatus);
+
+
+    if (!loginStatus) //not logged in; show pop up 
+    {
+      res.render('profile_popup');
+    } 
+    else //logged in; show profile page
+    {
+      addMediaHTML();
+      res.render('profile', userData);  
+    }
+  });
+
 };
 
 exports.edit = function(req, res) {
@@ -49,8 +52,7 @@ exports.login = function(email, password, userName, img, actualName)
   var i;
   if ( (i = this.existingUser(email, password, true)) != -1)
   {
-    populateUserData(i);
-    return true;
+    populateUserData(function(callback){ return true; }); 
   }
 
   //-----------------------
@@ -69,37 +71,69 @@ exports.login = function(email, password, userName, img, actualName)
 }
 
 
-exports.register = function(email, password, userName, img, actualName)
+exports.register = function(email, password, userName, img, actualName, callback)
 {
-  var i;
-  if ( (i = this.existingUser(email, password, false) != -1) )
-  {
-    return false;
-  }
+  console.log("REGISTER");
+  var request = require('request');
+  var myJSONObject = {
+  "loginStatus": false,
+  "userIdNumber": 0,
+  "userName": "default",
+  "actualName": "default",
+  "email" : "default@default.com",
+  "password": "default",
+  "profileImgURL": "/images/icons/default_profile.jpg",
+  "currentPageViewed": "default",
+  "currentCategorySelected": "default",
+  "currentItemIndex": 0,
+  "isScreenShared": false,
+  "isAtChatroom": false,
+  "categoryList": [],
+  "favoriteList": [],
+  "likedList" : [],
+  "bookmarkedList": [],
+  "ip" : "default"
+};
+
+  request({
+      url: "http://localhost:3001/users/signup",
+      method: "POST",
+      json: true,   // <--Very important!!!
+      body: myJSONObject
+  }, function (error, response, body){
+      console.log(body);
+  });
 
   //user doesn't exist; register user with provided info
-  var id = wholeUserData.length;
-  var newUser = createNewUser(id, userName, password, email, img, actualName);
-
-  wholeUserData.push(JSON.parse( JSON.stringify(newUser) ));
-  populateUserData(id); 
-
-  for (var i = 0; i < data.length; i++) {
-    userData.categoryList.push(data[i])
-  }
-
-
-  return true;
+  createNewUser(userName, password, email, img, actualName, function(cb)
+  {
+    console.log("this should be creating; index = "+cb.userIdNumber);
+    userData[cb.userIdNumber] = cb;
+    callback(cb);
+  });
 }
 
 
 exports.logout = function()
 { 
+  ip.getUserData(function(userData){
+    console.log("______________log out_________________");
   //stores data in wholeUserData
+  userData.loginStatus = false;
   wholeUserData[userData.userIdNumber] = JSON.parse(JSON.stringify(userData));
 
+
+  var userIdNumber = userData.userIdNumber;
+  var ipIndex = userData.ipIndex;
+  var ip = userData.ip;
   //replace userData with default user data
   userData = JSON.parse(JSON.stringify(defaultUserData));
+  userData.userIdNumber = userIdNumber;
+  userData.ipIndex;
+  userData.ip = ip;
+
+  console.log(userData);
+  });
 };
 
 
@@ -140,27 +174,38 @@ exports.existingUserName = function(userName)
 }
 
 //helper function to create new users
-function createNewUser(id, userName, password, email, img, actualName) {
-  var newUser = JSON.parse(JSON.stringify(defaultUserData));
+function createNewUser(userName, password, email, img, actualName, cb) 
+{
+  ip.getUserData(function(callback)
+  {
+    var newUser = JSON.parse(JSON.stringify(callback));
 
-  newUser.userIdNumber = id;
-  newUser.userName = userName;
-  newUser.password = password;
-  newUser.profileImgURL = img;
-  newUser.actualName = actualName;
-  newUser.email = email;
-  newUser.loginStatus = true;
-  return newUser;
+    newUser.userName = userName;
+    newUser.password = password;
+    newUser.profileImgURL = img;
+    newUser.actualName = actualName;
+    newUser.email = email;
+    newUser.loginStatus = true;
+    cb(newUser);
+  });
 }
 
 //helper function to populate userData after new user/existing user logs in
 //sets userData to values from wholeUserData
-function populateUserData(userIdNumber) {
+function populateUserData(callback) {
+  console.log("___________________POPULATE")
+  ip.getUserData(function(userData){
+
+  console.log("populate;");
+  console.log(userData);
   userData = JSON.parse(JSON.stringify(wholeUserData[userIdNumber]));
   userData["currentPageViewed"] = null;
   userData["currentCategorySelected"] = null;
   userData["loginStatus"] = true;
   userData["ipIndex"] = ipIndex;
+  console.log("calling back")
+  callback(userData);
+});
 }
 
 exports.getUserData = function()
@@ -170,7 +215,7 @@ exports.getUserData = function()
 
 exports.updateUserData = function(usrData)
 {
-  userData = usrData;
+  userData[usrData.userIdNumber] = usrData;
 };
 
 exports.changeInfo = function(email, actualName, userName, description)
@@ -220,28 +265,24 @@ exports.changePassword = function(originalPassword, newPassword1, newPassword2)
   return correctPassword+" "+validPassword;
 }
 
+
 function addMediaHTML()
 {
-  console.log("addMediaHTML in routes/profile");
-  for (var i = 0; i < userData.bookmarkedList.length; i++)
+  ip.getUserData(function(userData)
   {
-    var mediaHTML = getMediaHTML(userData.bookmarkedList[i]);
-    userData.bookmarkedList[i]['mediaHTML'] = mediaHTML;
-  }
+    console.log("addMediaHTML in routes/profile");
+    for (var i = 0; i < userData.bookmarkedList.length; i++)
+    {
+      var mediaHTML = getMediaHTML(userData.bookmarkedList[i]);
+      userData.bookmarkedList[i]['mediaHTML'] = mediaHTML;
+    }
 
-  /*
-  for (var i = 0; i < user.UPLOADLIST.length; i++)
-  {
-    var mediaHTML = getMediaHTML(userData.UPLOADLIST[i]);
-    userData.UPLOADLIST[i]['mediaHTML'] = mediaHTML
-  }*/
-
-  for (var i = 0; i < userData.sharedList.length; i++)
-  {
-    var mediaHTML = getMediaHTML(userData.sharedList[i]);
-    userData.sharedList[i]['mediaHTML'] = mediaHTML
-  }
-  
+    for (var i = 0; i < userData.sharedList.length; i++)
+    {
+      var mediaHTML = getMediaHTML(userData.sharedList[i]);
+      userData.sharedList[i]['mediaHTML'] = mediaHTML
+    }
+  });  
 }
 
 function getMediaHTML(item)

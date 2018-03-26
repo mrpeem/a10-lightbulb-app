@@ -172,10 +172,11 @@ io.sockets.on('connection', function(socket){
     }
     else
     {
-      profile.register(email, password, userName, img, actualName);
-      socket.emit('successfulLogin');
-
-      updateUserData( profile.getUserData() );
+      profile.register(email, password, userName, img, actualName, function(callback)
+      {
+        socket.emit('successfulLogin');
+        updateUserData(callback);
+      });
     }
   });
 

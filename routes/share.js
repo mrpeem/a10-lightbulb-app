@@ -396,15 +396,17 @@ exports.email = function(email, link, itemID)
 //return index of item if bookmarked; -1 otherwise
 exports.checkShare = function(itemID, callback)
 {
-  console.log("checkShare; itemID = "+itemID);
-  for (var i = 0; i < userData.sharedList.length; i++)
+  ip.getUserData(function(callback){
+    console.log(callback)
+  for (var i = 0; i < callback.sharedList.length; i++)
   {
-    if (itemID == userData.sharedList[i].id)
+    if (itemID == callback.sharedList[i].id)
     {
       callback(i);
     }
   }
   callback(-1);
+  });
 }
 
 exports.getUserData = function()
